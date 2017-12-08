@@ -37,3 +37,37 @@ As an admin, I want to have total control of the data.
 As an admin, I want to see logs of donations by location, user, date and quantity.
 As an admin, I want to edit and remove existing users, staff and admin.
 As an admin, I want to review shipping material requests.
+
+Coding consistency
+1. good: fn()  bad: fn ()
+2. good: map.(a => a * 2);
+    bad: map.((a)=> a*2);
+3. good: let b == 'str';
+    bad: let b=='str';
+4. good: function((power, exp) => {
+
+        })
+    bad: function((power, exp) =>{
+
+        })
+
+5. no line spaces between like items (ie 'require')
+6. one line space between unlike items
+
+
+Behavior
+1. Taking breaks every 30 minutes is recommended
+2. Stand ups twice a day
+3. No pulling in your own pull request
+4. Take time to practice presentation
+5. No added features on Friday
+6. Scrum tickets should be short, concise, actionable, "vertical" actions
+
+Developer stories
+1. Code should be consistent and readable.
+2. Code should be resilient and reliable.
+3. Code should be tested.
+4. Errors should be handled.
+5. App should be secure and won't release personal information.
+6. Code should be modular and expandable.
+
