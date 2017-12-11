@@ -1,0 +1,23 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+$primary: #B163A3;
+$danger:  rgba(177, 99, 163, 0.72);
+$info: rgba(177, 99, 163, 0.72);
+$success : #A4A4A4;
+
+.need-space {
+    height: 20px;
+}
+
+span {
+    color: $primary;
+}
+
+.input-title {
+    display: inline-block;
+    width: 70%;
+    
+}
+
+@import "../../node_modules/bulma/bulma";
