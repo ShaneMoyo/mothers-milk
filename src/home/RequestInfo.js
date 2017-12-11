@@ -17,7 +17,7 @@ class RequestInfo extends Component {
                 </form>
             </div>
             <div className="tile is-child box hero is-success">
-                <h3>We can out additional info here</h3>
+                <h3>We can put additional info here</h3>
             </div>
         </div>
         );
