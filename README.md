@@ -10,7 +10,7 @@ Donor
 5. As a donor, I want to order materials for storing milk.
 6. As a donor, I want the option to let them know this is my last donation.
 7. As a donor, I want to order materials for shipping.
-8. As a donor, I want to let Fed-Ex know I have an item for pickup.
+8. As a donor, I want to let NW Mother's Milk Bank know I have an item for pickup.
 9. As a donor, I want easy access to the phone number of my local drop off site.
 10. As a donor, I want access to videos of how to pump or how to ship.
 11. As a donor, I want to let them know how much I am donating.
