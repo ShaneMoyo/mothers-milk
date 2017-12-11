@@ -10,25 +10,25 @@ import '../style/mystyle.css';
 
 
 class Home extends Component {
-    render() {
-        return (
-            <div>
-                <Header/>
-                <HomeInfo/>
-                <div className="need-space"></div>
-                <UserInfo/>
-                <div className="container is-fluid">
-                    <div className="need-space"></div>
-                    <div className="tile is-ancestor">
-                        <LocationInfo/>
-                        <RequestInfo/>
-                    </div>
-                    <div className="need-space"></div>
-                </div>
-                <Footer/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Header/>
+        <HomeInfo/>
+        <div className="need-space"></div>
+        <UserInfo/>
+        <div className="container is-fluid">
+          <div className="need-space"></div>
+          <div className="tile is-ancestor">
+            <LocationInfo/>
+            <RequestInfo/>
+          </div>
+          <div className="need-space"></div>
+        </div>
+        <Footer/>
+      </div>
+    );
+  }
 }
 
 export default Home;
