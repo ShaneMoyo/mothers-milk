@@ -1,12 +1,34 @@
 .need-space {
   height: 20px; }
 
+.navbar {
+  height: 11rem; }
+  .navbar .navbar-item {
+    font-size: 22px;
+    font-weight: bold; }
+    .navbar .navbar-item:hover {
+      text-decoration: underline;
+      font-size: 26px; }
+
+.container {
+  font-size: 18px;
+  padding: 30px; }
+  .container h3 {
+    font-size: 24px;
+    font-weight: bolder; }
+
 span {
   color: #B163A3; }
 
 .input-title {
   display: inline-block;
   width: 70%; }
+
+.footer {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 11rem; }
 
 /*! bulma.io v0.6.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
