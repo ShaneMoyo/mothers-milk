@@ -36,7 +36,7 @@ Admin stories
 1. As an admin, I want to be able to authorize donors, admin and staff.
 2. As an admin, I want to be able to edit drop off information.
 3. As an admin, I want to have total control of the data.
-4. As an admin, I want to see logs of donations by location, user, date and quantity.
+4. As an admin, I want to see logs of donations by dropSite, user, date and quantity.
 5. As an admin, I want to edit and remove existing users, staff and admin.
 6. As an admin, I want to review shipping material requests.
 
