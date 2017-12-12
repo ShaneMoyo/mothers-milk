@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 
 class SupplyRequest extends Component {
   state = {
-    target: 'off'
+    bags: 0,
+    boxes: 0,
+    complete: false
   }
 
   // handleChecked = (event) => {
@@ -12,12 +14,22 @@ class SupplyRequest extends Component {
   //   this.setState({ target: checked });
   // }
 
-  handleSubmit = (supplies) => {
-    
+  handleSubmit = event => {
+    event.preventDefault();
+    const { bags, boxes } = this.state;
+    this.setState({ complete: true });
+    console.log('inhandleSubmit', bags, boxes);
+  }
+
+  handleChange = ({ target }) => {
+    console.log('inhandleChange', target.value);
+    this.setState({
+      [target.name]: target.value
+    });
   }
 
   render() {
-    const { target } = this.state;
+    const { bags, boxes } = this.state;
     return (
 
       <div className="tile is-4 is-vertical is-parent">
@@ -28,7 +40,8 @@ class SupplyRequest extends Component {
               <div className="control">
                 <div className="input-title">
                   <label>Milk Collection Bags: </label>
-                  <select name="bags">
+                  <select name="bags" value={bags} onChange={this.handleChange}>
+                    <option value="0">0</option>
                     <option value="2">2</option>
                     <option value="4">4</option>
                     <option value="6">6</option>
@@ -36,20 +49,19 @@ class SupplyRequest extends Component {
                     <option value="10">10</option>
                   </select>
                 </div>
-                {/* <input type="checkbox" onChange={this.handleChecked} /> */}
-                {/* {(target === 'on') && <InputBox/>} */}
                 <div className="input-title">
                   <label>Shipping Boxes: </label>
-                  <select name="boxes">
+                  <select name="boxes" value={boxes} onChange={this.handleChange}>
+                    <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                   </select>
-                </div> 
-                {/* <input type="checkbox" /> */}
+                </div>
               </div>
               <button className="button" onSubmit={this.handleSubmit}>Submit</button>
+              { this.state.complete ? <p>Thank you for your order</p> : <p></p>}
             </div>
           </form>
         </div>
