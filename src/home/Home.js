@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import HomeInfo from './HomeInfo';
-import UserInfo from './UserInfo';
-import LocationInfo from './LocationInfo';
-import RequestInfo from './RequestInfo';
+import UserInfo from '../user/User';
+import DropSites from '../dropSites/DropSites';
+import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -20,8 +20,8 @@ class Home extends Component {
         <div className="container is-fluid">
           <div className="need-space"></div>
           <div className="tile is-ancestor">
-            <LocationInfo/>
-            <RequestInfo/>
+            <DropSites/>
+            <SupplyRequest/>
           </div>
           <div className="need-space"></div>
         </div>
