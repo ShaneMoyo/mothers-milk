@@ -2,7 +2,6 @@ import store from '../store/store';
 import { API_URL } from './constants';
 import superagent from 'superagent'
 
-let headers = new Headers();
 let token = '';
 
 const storage = window.localStorage;
@@ -31,14 +30,9 @@ const wrap = cmd => cmd
 
 
 export const request = {
-  
   get(url) {
-    return fetch(url, { 
-      method:'GET',
-      headers: headers,
-    });
-  }
-
+    return wrap(superagent.get(`${API_URL}${url}`));
+  } 
 };
 
 
