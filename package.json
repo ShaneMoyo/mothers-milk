@@ -14,6 +14,12 @@
     "build": "react-scripts build && npm run copy",
     "copy": "rm -rf ../../mothers-milk-server/public && cp -R ./build ../mothers-milk-server/public",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar --include-path ./src/styles src/ -o src/"
+  },
+  "devDependencies": {
+    "bulma": "^0.6.1",
+    "node-sass-chokidar": "0.0.3"
   }
 }

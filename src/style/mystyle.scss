@@ -1,0 +1,53 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+$primary: #B163A3;
+$danger:  rgba(177, 99, 163, 0.72);
+$info: rgba(177, 99, 163, 0.72);
+$success : #A4A4A4;
+
+$space: 20px;
+$height: 11rem;
+
+.need-space{
+    height: $space;
+}
+.navbar{
+    height: $height;
+    .navbar-item { 
+        font-size: 22px;
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+            font-size: 26px;
+        }
+    }
+}
+
+.container {
+    font-size: 18px;
+    padding: 30px;
+    h3 {
+        font-size: 24px;
+        font-weight: bolder; 
+    }
+}
+
+span {
+  color: $primary;
+}
+
+.input-title {
+  display: inline-block;
+  width: 70%;
+  
+}
+.footer {
+    position: absolute;
+    overflow:hidden;
+    width: 100%;
+    height: $height;
+  }
+
+
+@import "../../node_modules/bulma/bulma";
