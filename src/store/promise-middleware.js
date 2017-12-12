@@ -1,4 +1,4 @@
-import { LOADING, LOADED, ERROR } from '../app/reducer';
+import { LOADING, DONE_LOADING, ERROR } from '../services/constants';
 const isPromise = val => val && typeof val.then === 'function';
 
 export default ({ dispatch }) => next => async action => {
@@ -10,7 +10,7 @@ export default ({ dispatch }) => next => async action => {
   
   try {
     const result = await payload;
-    dispatch({ type: LOADED });    
+    dispatch({ type: DONE_LOADING });    
     dispatch({ 
       type, 
       payload: result
