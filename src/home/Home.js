@@ -5,11 +5,18 @@ import DropSites from '../dropSites/DropSites';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
+import { loadUsers } from '../user/actions';
+import { connect } from 'react-redux';
 
 import '../style/mystyle.css';
 
 
 class Home extends Component {
+
+  componentDidMount() {
+    this.props.loadUsers();
+  }
+
   render() {
     return (
       <div>
@@ -31,4 +38,13 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps(state) {
+  return {
+    users: state.users
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { loadUsers }
+)(Home);
