@@ -5,11 +5,13 @@ import Home from '../home/Home';
 import Auth from '../auth/Auth';
 import { connect } from 'react-redux';
 import { checkForToken } from '../auth/actions';
+import { loadDropSites } from '../dropSites/actions';
 
 class App extends Component {
   componentDidMount() {
     console.log('checking for token================');
-    //this.props.checkForToken();
+    this.props.checkForToken();
+    this.props.loadDropSites();
   }
 
   render() {
@@ -27,5 +29,5 @@ export default connect(
     user: auth.user,
     checkedToken: auth.checkedToken
   }),
-  { checkForToken }
+  { checkForToken, loadDropSites }
 )(App);

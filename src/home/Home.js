@@ -17,8 +17,8 @@ import '../style/mystyle.css';
 class Home extends Component {
 
   componentDidMount() {
-    this.props.checkForToken();
-    this.props.loadDropSites();
+    // this.props.checkForToken();
+    // this.props.loadDropSites();
   }
 
   render() {
