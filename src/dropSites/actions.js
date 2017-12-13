@@ -11,22 +11,29 @@ export function loadDropSites() {
 }
 
 export function addDropSite(dropSite) {
-  return {
-    type: DROPSITE_ADD,
-    payload: dropSitesApi.add(dropSite)
+  return dispatch => {
+    dispatch({
+      type: DROPSITE_ADD,
+      payload: dropSitesApi.add(dropSite)
+    });
   };
 }
 
+
 export function updateDropSite(dropSite) {
-  return {
-    type: DROPSITE_UPDATE,
-    payload: dropSitesApi.update(dropSite)
+  return dispatch => {
+    dispatch({
+      type: DROPSITE_UPDATE,
+      payload: dropSitesApi.update(dropSite)
+    });
   };
 }
 
 export function deleteDropSite(id) {
-  return {
-    type: DROPSITE_DELETE,
-    payload: dropSitesApi.remove(id).then(() => id) 
+  return dispatch => {
+    dispatch({
+      type: DROPSITE_DELETE,
+      payload: dropSitesApi.remove(id).then(() => id) 
+    });
   };
 }
