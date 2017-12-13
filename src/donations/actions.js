@@ -5,7 +5,7 @@ import { getStoredToken } from '../services/request';
 export function loadDonations() {
   return dispatch => {
     dispatch({
-      type: actions.LOAD_DONATOINS,
+      type: actions.LOAD_DONATIONS,
       payload: donationApi.get()
     });
   };

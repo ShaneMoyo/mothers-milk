@@ -2,7 +2,7 @@ import * as actions from './constants';
 
 export default function donations(state = [], { type, payload }) {
   switch(type) {
-    case actions.LOAD_DONATION: 
+    case actions.LOAD_DONATIONS: 
       return payload;
     case actions.ADD_DONATION:
       return [

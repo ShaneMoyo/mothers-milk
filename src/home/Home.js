@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import HomeInfo from './HomeInfo';
 import DropSites from '../dropSites/DropSites';
+import Donations from '../donations/Donations';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
 import { loadDropSites } from '../dropSites/actions';
+import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
 import '../style/mystyle.css';
 
@@ -13,8 +15,9 @@ class Home extends Component {
 
   render() {
 
-    const { user } = this.props;
+    const { user, donations } = this.props;
     user && this.props.loadDropSites();
+    user && this.props.loadDonations();
 
     return (
       <div>
@@ -39,6 +42,6 @@ class Home extends Component {
 
 
 export default connect(
-  ({ auth }) => ({ user: auth.user }),
-  { loadDropSites }
+  ({ auth, donations }) => ({ user: auth.user, donations }),
+  { loadDropSites, loadDonations }
 )(Home);
