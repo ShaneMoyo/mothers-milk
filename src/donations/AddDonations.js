@@ -7,19 +7,29 @@ class AddDonations extends Component {
   handleDonate = event => {
     event.preventDefault();
     const { dropSite, quantity } = event.target.elements;
-    this.props.signin(
+    const { user } = this.props.auth;
+    this.props.addDonation(
       { 
         quantity: quantity.value,
-        dropSite: dropSite.value 
+        dropSite: dropSite.value,
+        Donor: user._id
       });
   }
 
   render(){
+    const { dropSites } = this.props;
+   
+    const listOfDropSites = dropSites && dropSites.map(dropSite =>(
+      <option key={dropSite._id} value={dropSite._id}>{dropSite.name}</option>
+    ));
+    
     return (
       <div>
         <form onSubmit={event => this.handleDonate(event)}>
-          <label>quantity: <input name="quantity"/></label>
-          <label>drop site: <input name="dropSite"/></label>
+          <label>quantity: <input name="quantity" placeholder="quantity"/></label>
+          <select name="dropSite">
+            {listOfDropSites}
+          </select>
           <input type="submit" ></input>
         </form>
       </div>
@@ -28,6 +38,6 @@ class AddDonations extends Component {
 }
 
 export default connect(
-  ({ donations }) => ({ donations }),
+  ({ donations, auth, dropSites }) => ({ donations, auth, dropSites }),
   { addDonation }
 )(AddDonations);

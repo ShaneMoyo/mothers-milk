@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
+import AddDonation from './AddDonations';
 
 
 class Donations extends Component {
@@ -12,8 +13,7 @@ class Donations extends Component {
 
   render() {
 
-    const { donations } = this.props;
-
+    const { donations, dropSites } = this.props;
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
@@ -25,6 +25,7 @@ class Donations extends Component {
               </li>
             ))}
           </ul>
+          <AddDonation/>
         </div>
       </div>
     );

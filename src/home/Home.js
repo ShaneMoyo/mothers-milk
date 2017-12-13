@@ -29,6 +29,7 @@ class Home extends Component {
           <div className="need-space"></div>
           <div className="tile is-ancestor">
             <DropSites/>
+            <Donations/>
             <SupplyRequest/>
           </div>
           <div className="need-space"></div>
