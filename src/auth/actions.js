@@ -5,7 +5,7 @@ import { getStoredToken } from '../services/request';
 export function checkForToken() {
   return dispatch => {
     const token = getStoredToken();
-    
+
     if(!token) {
       dispatch({ type: actions.CHECKED_TOKEN });
       return;
@@ -23,6 +23,17 @@ export function checkForToken() {
 export function signin(credentials) {
   return dispatch => {
     return authApi.signin(credentials)
+      .then(({ token }) => dispatch({ type: actions.GOT_TOKEN, payload: token }))
+      .then(() => authApi.verify())
+      .then(id =>  authApi.getUser(id))
+      .then(user => dispatch({ type: actions.FETCHED_USER, payload: user }))
+      .catch(error => dispatch({ type: actions.AUTH_FAILED , payload: error }));
+  };
+}
+
+export function signup(credentials) {
+  return dispatch => {
+    return authApi.signup(credentials)
       .then(({ token }) => dispatch({ type: actions.GOT_TOKEN, payload: token }))
       .then(() => authApi.verify())
       .then(id =>  authApi.getUser(id))

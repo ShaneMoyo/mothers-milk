@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signin } from './actions';
+import { signin, siginup } from './actions';
 
 
 class Auth extends Component {
@@ -15,10 +15,27 @@ class Auth extends Component {
       });
   }
 
+  handleSignIn = event => {
+    event.preventDefault();
+    const { email, password, name } = event.target.elements;
+    this.props.signin(
+      { 
+        name: name.value,
+        email: email.value,
+        password: password.value 
+      });
+  }
+
   render(){
     return (
       <div>
         <form onSubmit={event => this.handleSignIn(event)}>
+          <label>email: <input name="email"/></label>
+          <label>password: <input type="password" name="password"/></label>
+          <input type="submit" ></input>
+        </form>
+        <form onSubmit={event => this.handleSignUp(event)}>
+          <label>name: <input name="name"/></label>
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
