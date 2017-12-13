@@ -14,9 +14,44 @@ const wrap = async promise => {
 };
 
 export default {
-  get(path) {
+  
+  get(path, options) {
     return wrap(
-      fetch(`${url}${path}`)
+      fetch(`${url}${path}`, options)
+    );
+  },
+  
+  post(path, data) {
+    return wrap(
+      fetch(`${url}${path}`, {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+    );
+  },
+
+  put(path, data) {
+    return wrap(
+      fetch(`${url}${path}`, {
+        method: 'put',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+    );
+  },
+
+  delete(path) {
+    return wrap(
+      fetch(`${url}${path}`, {
+        method: 'delete'
+      })
     );
   }
 };
