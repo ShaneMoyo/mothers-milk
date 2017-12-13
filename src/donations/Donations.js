@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { donate } from './actions';
+import { addDonation } from './actions';
 
-class MakeDonation extends Component {
+class Donations extends Component {
 
   handleDonate = event => {
     event.preventDefault();
@@ -26,3 +26,8 @@ class MakeDonation extends Component {
     );
   }
 }
+
+export default connect(
+  ({ donations }) => ({ donations }),
+  { addDonation }
+)(Donations);
