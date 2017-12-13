@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signin, siginup } from './actions';
+import { signin, signup } from './actions';
 
 
 class Auth extends Component {
@@ -49,5 +49,5 @@ export default connect(({ auth }) => ({
   error: auth.error,
   user: auth.user
 }),
-{ signin, siginup }
+{ signin, signup }
 )(Auth);
