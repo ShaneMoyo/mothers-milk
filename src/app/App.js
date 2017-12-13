@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from '../home/Home';
 import Auth from '../auth/Auth';
+import AllDonations from '../donations/AllDonations';
 import { connect } from 'react-redux';
 import { checkForToken } from '../auth/actions';
 import { loadDropSites } from '../dropSites/actions';
@@ -17,6 +17,7 @@ class App extends Component {
     return (
       <div>
         <Auth/>
+        <AllDonations/>
         <Home/>
       </div>
     );
