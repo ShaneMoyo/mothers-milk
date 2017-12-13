@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
+import { checkForToken } from '../auth/actions';
 import AddDonation from './AddDonations';
 
 
 class Donations extends Component {
 
   componentDidMount() {
+    this.props.checkForToken();
     this.props.loadDonations();
     console.log('in donations', this.props);
   }
@@ -40,5 +42,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { loadDonations }
+  { loadDonations, checkForToken }
 )(Donations);
