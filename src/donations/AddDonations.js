@@ -7,7 +7,7 @@ class AddDonations extends Component {
   handleDonate = event => {
     event.preventDefault();
     const { dropSite, quantity } = event.target.elements;
-    const { user } = this.props.auth;
+    const { user } = this.props;
     this.props.addDonation(
       { 
         quantity: quantity.value,
@@ -38,6 +38,6 @@ class AddDonations extends Component {
 }
 
 export default connect(
-  ({ donations, auth, dropSites }) => ({ donations, auth, dropSites }),
+  ({ donations, dropSites }) => ({ donations, dropSites }),
   { addDonation }
 )(AddDonations);

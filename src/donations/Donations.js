@@ -8,14 +8,13 @@ import AddDonation from './AddDonations';
 class Donations extends Component {
 
   componentDidMount() {
-    this.props.checkForToken();
-    this.props.loadDonations();
-    console.log('in donations', this.props);
+    const { checkForToken, loadDonations, user } = this.props; 
+    user && loadDonations();
   }
 
   render() {
 
-    const { donations, dropSites } = this.props;
+    const { donations, dropSites, user } = this.props;
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
@@ -27,7 +26,7 @@ class Donations extends Component {
               </li>
             ))}
           </ul>
-          <AddDonation/>
+          <AddDonation user={user}/>
         </div>
       </div>
     );
@@ -36,7 +35,8 @@ class Donations extends Component {
 
 function mapStateToProps(state) {
   return {
-    donations: state.donations
+    donations: state.donations,
+    user: state.auth.user
   };
 }
 
