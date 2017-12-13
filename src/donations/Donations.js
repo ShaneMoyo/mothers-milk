@@ -8,13 +8,13 @@ import AddDonation from './AddDonations';
 class Donations extends Component {
 
   componentDidMount() {
-    const { checkForToken, loadDonations, user } = this.props; 
+    const {  loadDonations, user } = this.props; 
     user && loadDonations();
   }
 
   render() {
 
-    const { donations, dropSites, user } = this.props;
+    const { donations, user } = this.props;
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
