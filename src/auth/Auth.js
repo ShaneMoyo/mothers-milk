@@ -37,6 +37,7 @@ class Auth extends Component {
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
+        <h3>Create New User:</h3>
         <form onSubmit={event => this.handleSignUp(event)}>
           <label>name: <input name="name"/></label>
           <label>roles: <input name="roles"/></label>
