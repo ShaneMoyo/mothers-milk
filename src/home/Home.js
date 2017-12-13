@@ -19,7 +19,6 @@ class Home extends Component {
   componentDidMount() {
     this.props.checkForToken();
     this.props.loadDropSites();
-    // this.props.loadUserById('5a3049a9b9b5be39a648906c');
   }
 
   render() {
@@ -27,10 +26,9 @@ class Home extends Component {
     return (
       <div>
         <Header/>
+        <h1>hello { users ? users.name : 'no user' }</h1>
         <HomeInfo/>
         <div className="need-space"></div>
-        <h1>hello { users ? users.name : 'no user' }</h1>
-        
         <div className="container is-fluid">
           <div className="need-space"></div>
           <div className="tile is-ancestor">

@@ -8,8 +8,8 @@ import { checkForToken } from '../auth/actions';
 
 class App extends Component {
   componentDidMount() {
-    console.log('checking for token');
-    this.props.checkForToken();
+    console.log('checking for token================');
+    //this.props.checkForToken();
   }
 
   render() {
