@@ -1,27 +1,21 @@
-import api from './api';
-
-const settings = {
-  headers: {
-    Authorization: ''
-  }
-};
+import { request } from './request';
 
 export default {
-  get(id, options = {}) {
+  get(id) {
     const path = id ? `/users/${id}` : '/users';
-    return api.get(path, { ...settings, ...options });
+    return request.get(path);
   },
 
   add(user) {
-    return api.post('/users', user);
+    return request.post('/users', user);
   },
 
   update(user) {
-    return api.put(`/users/${user._id}`, user);
+    return request.put(`/users/${user._id}`, user);
   },
 
   remove(id) {
-    return api.delete(`/users/${id}`);
+    return request.delete(`/users/${id}`);
   }
 };
 

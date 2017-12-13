@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import { users } from '../user/reducer';
+import auth from '../auth/reducers';
 import { dropSites } from '../dropSites/reducer';
+import donations from '../donations/reducers';
 import { error, loading } from '../services/reducer';
 
-
 export default combineReducers({
-  users,
+  auth,
+  donations,
   dropSites,
   error,
   loading

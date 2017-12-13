@@ -2,22 +2,13 @@ import { DROPSITE_ADD, DROPSITE_DELETE, DROPSITES_LOAD, DROPSITE_UPDATE } from '
 import dropSitesApi from '../services/dropSites-api';
 
 export function loadDropSites() {
-  return async dispatch => {
-    await dispatch({
+  return dispatch => {
+    dispatch({
       type: DROPSITES_LOAD,
       payload: dropSitesApi.get()
     });
   };
 }
-
-// export function loadDropSiteById(id) {
-//   return async dispatch => {
-//     await dispatch({
-//       type: DROPSITE_LOAD,
-//       payload: dropSites.get(id)
-//     });
-//   };
-// }
 
 export function addDropSite(dropSite) {
   return {
@@ -36,6 +27,6 @@ export function updateDropSite(dropSite) {
 export function deleteDropSite(id) {
   return {
     type: DROPSITE_DELETE,
-    payload: dropSitesApi.remove(id).then(() => id) // what is this??
+    payload: dropSitesApi.remove(id).then(() => id) 
   };
 }

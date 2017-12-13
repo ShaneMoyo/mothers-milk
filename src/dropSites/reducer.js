@@ -2,7 +2,6 @@ import { DROPSITE_ADD, DROPSITE_DELETE, DROPSITES_LOAD, DROPSITE_UPDATE } from '
 
 export function dropSites(state = [], { type, payload }) {
   switch(type) {
-
     case DROPSITES_LOAD: 
       return payload;
     case DROPSITE_ADD:
