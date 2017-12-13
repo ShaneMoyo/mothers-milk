@@ -1,6 +1,6 @@
 import * as actions from './constants';
 import supplyRequestApi from '../services/supplyRequest-api';
-import { getStoredToken } from '../services/request';
+
 
 export function loadSupplyRequest() {
   return dispatch => {
