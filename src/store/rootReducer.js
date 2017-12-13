@@ -1,7 +1,11 @@
-// import { combineReducers } from 'redux';
-// import { error, loading } from '../app/reducer';
+import { combineReducers } from 'redux';
+
+import { users } from '../user/reducer';
+import { error, loading } from '../services/reducer';
 
 
-// export default combineReducers({
-
-// });
+export default combineReducers({
+  users,
+  error,
+  loading
+});

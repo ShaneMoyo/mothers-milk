@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
-class UserInfo extends Component {
+class User extends Component {
+ 
   render() {
+    const { name='Awesome stranger donor' } = this.props.users;
     return(
       <section className="section hero is-light">
         <div className="container">
           <h1 className="title">Home</h1>
           <h2 className="subtitle">
-                    Dear <strong>$ValuableUser</strong>, <br />
+                    Dear <strong>{name}</strong>, <br />
                     You have donated <span>$thisMuch🍼🍼🍼🍼</span> breast milk,
                     and saved <span>$thisMany</span> lives.
                      Thank you for being a part of <span>Northwest Mothers Milk Bank</span>.
@@ -18,4 +20,4 @@ class UserInfo extends Component {
   }
 }
 
-export default UserInfo;
+export default User;
