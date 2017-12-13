@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
+import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
-import { addDonation } from './actions';
+
 
 class Donations extends Component {
 
-  handleDonate = event => {
-    event.preventDefault();
-    const { dropSite, quantity } = event.target.elements;
-    this.props.signin(
-      { 
-        quantity: quantity.value,
-        dropSite: dropSite.value 
-      });
+  componentDidMount() {
+    this.props.loadDonations();
+    console.log('in donations', this.props);
   }
 
-  render(){
+  render() {
+
+    const { donations } = this.props;
+
     return (
-      <div>
-        <form onSubmit={event => this.handleDonate(event)}>
-          <label>quantity: <input name="quantity"/></label>
-          <label>drop site: <input name="dropSite"/></label>
-          <input type="submit" ></input>
-        </form>
+      <div className="tile is-parent">
+        <div className="tile is-child box">
+          <h2 className="subtitle">Donations</h2>
+          <ul>
+            {donations.map((donation) => (
+              <li key={donation._id}>
+                {donation.quantity}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    donations: state.donations
+  };
+}
+
 export default connect(
-  ({ donations }) => ({ donations }),
-  { addDonation }
+  mapStateToProps,
+  { loadDonations }
 )(Donations);
