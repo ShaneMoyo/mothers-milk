@@ -7,19 +7,19 @@ const settings = {
 
 export default {
   get(id, options = {}) {
-    const path = id ? `/users/${id}` : '/users';
+    const path = id ? `/dropSites/${id}` : '/dropSites';
     return api.get(path, { ...settings, ...options });
   },
 
-  add(user) {
-    return api.post('/users', user);
+  add(dropSite) {
+    return api.post('/dropSites', dropSite);
   },
 
-  update(user) {
-    return api.put(`/users/${user._id}`, user);
+  update(dropSite) {
+    return api.put(`/dropSites/${dropSite._id}`, dropSite);
   },
 
   remove(id) {
-    return api.delete(`/users/${id}`);
+    return api.delete(`/dropSites/${id}`);
   }
 };

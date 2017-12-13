@@ -14,7 +14,7 @@ import '../style/mystyle.css';
 class Home extends Component {
 
   componentDidMount() {
-    this.props.loadUserById('5a3057210460df70f8ac4c4c');
+    this.props.loadUserById('5a3049a9b9b5be39a648906c');
   }
 
   render() {
