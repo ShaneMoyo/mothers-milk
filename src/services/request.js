@@ -10,7 +10,6 @@ store.subscribe(() => {
   const { token: newToken } = store.getState().auth;
   if(newToken !== token) {
     token = newToken;
-    console.log('tokenin subcribe', token);
     token ? storage.token = token : storage.clear('token');
   }
 });
