@@ -17,7 +17,7 @@ class Home extends Component {
 
     const { user, donations } = this.props;
     user && this.props.loadDropSites();
-    user && this.props.loadDonations();
+    //user && this.props.loadDonations();
 
     return (
       <div>
