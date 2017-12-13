@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin } from './actions';
-import SignIn from './SignIn';
+
 
 class Auth extends Component {
 
-  render(){
-    const { signin } = this.props;
+  handleSignIn = event => {
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    this.props.signin(
+      { 
+        email: email.value,
+        password: password.value 
+      });
+  }
 
+  render(){
     return (
       <div>
-        <SignIn submit={signin}/>
+        <form onSubmit={event => this.handleSignIn(event)}>
+          <label>email: <input name="email"/></label>
+          <label>password: <input type="password" name="password"/></label>
+          <input type="submit" ></input>
+        </form>  
       </div>
     );
   }
