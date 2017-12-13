@@ -8,7 +8,7 @@ class SupplyRequest extends Component {
     const { bags, boxes } = event.target.elements;
     console.log('in supply request with boxes and gas ', bags.value, boxes.value);
     const { user } = this.props;
-    this.props.addSupplyRequest(
+    this.props.requestSupply(
       { 
         bags: bags.value,
         boxes: boxes.value,
