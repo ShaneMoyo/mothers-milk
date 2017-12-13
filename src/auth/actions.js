@@ -1,6 +1,6 @@
 import * as actions from './constants';
 import authApi from '../services/authApi';
-import { getStoredToken } from './request';
+import { getStoredToken } from '../services/request';
 
 export function checkForToken() {
   return dispatch => {
@@ -24,8 +24,10 @@ export function checkForToken() {
 }
 
 export function signin(credentials) {
+  console.log('about to dispatch...');
   return dispatch => {
-    authApi.signin(credentials)
+    console.log('hi');
+    return authApi.signin(credentials)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })

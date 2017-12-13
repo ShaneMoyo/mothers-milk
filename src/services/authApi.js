@@ -5,7 +5,8 @@ export default {
     return request.get('/auth/verify');
   },
   signin(credentials){
-    return request.post('/users', credentials);
+    console.log('signed in, credentials: ', credentials);
+    return request.post('/auth/signin', credentials);
   },
   getUser(id){
     return request.get(`/users/${id}`);
