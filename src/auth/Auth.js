@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signin, signup } from './actions';
+import { signin, signup, signout } from './actions';
 
 
 class Auth extends Component {
@@ -27,6 +27,8 @@ class Auth extends Component {
       });
   }
 
+  handleSignOut = () => this.props.signout();
+
   render(){
     return (
       <div>
@@ -41,7 +43,8 @@ class Auth extends Component {
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
-        </form>  
+        </form>
+        <input type="submit" value="sign out" onClick={this.handleSignOut}></input>
       </div>
     );
   }
@@ -51,5 +54,5 @@ export default connect(({ auth }) => ({
   error: auth.error,
   user: auth.user
 }),
-{ signin, signup }
+{ signin, signup, signout }
 )(Auth);

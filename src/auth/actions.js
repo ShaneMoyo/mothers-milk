@@ -40,5 +40,7 @@ export function signup(credentials) {
 }
 
 export function signout(){
-  return { type: actions.LOGOUT };
+  return dispatch => {
+    dispatch({ type: actions.LOGOUT });
+  };
 }
