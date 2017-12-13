@@ -24,15 +24,15 @@ export function checkForToken() {
 }
 
 export function signin(credentials) {
-  console.log('about to dispatch...');
   return dispatch => {
-    console.log('hi');
     return authApi.signin(credentials)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })
       .then(() => authApi.verify())
-      .then(id => authApi.getUser(id))
+      .then(id => {
+        return authApi.getUser(id);
+      })
       .then(user => {
         dispatch({ type: actions.FETCH_USER, payload: user });
       })

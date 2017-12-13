@@ -8,7 +8,6 @@ const storage = window.localStorage;
 
 store.subscribe(() => {
   const { token: newToken } = store.getState().auth;
-  console.log('Store updated!, it\'s', store.getState());
   if(newToken !== token) {
     token = newToken;
     token ? storage.token = token : storage.clear('token');
