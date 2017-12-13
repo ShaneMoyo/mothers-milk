@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { requestSupply } from './actions';
 
 class SupplyRequest extends Component {
 
@@ -66,6 +67,6 @@ class SupplyRequest extends Component {
 
 export default connect(
   ({ auth }) => ({ user: auth.user }),
-  {  }
+  { requestSupply }
 )(SupplyRequest);
 
