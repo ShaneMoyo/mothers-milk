@@ -34,6 +34,9 @@ export const request = {
   }, 
   post(url, data) {
     return wrap(superagent.post(`${API_URL}${url}`).send(data));
+  },
+  delete(url) {
+    return wrap(superagent.delete(`${API_URL}${url}`));
   } 
 };
 
