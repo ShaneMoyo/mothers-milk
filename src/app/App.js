@@ -5,6 +5,7 @@ import Home from '../home/Home';
 import Auth from '../auth/Auth';
 
 class App extends Component {
+
   render() {
     return (
       <div>

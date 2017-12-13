@@ -7,7 +7,6 @@ class DropSites extends Component {
 
   componentDidMount() {
     this.props.loadDropSites();
-    console.log('in dropSites', this.props);
   }
 
   render() {

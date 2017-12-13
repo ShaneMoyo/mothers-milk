@@ -2,6 +2,7 @@ import { DROPSITE_ADD, DROPSITE_DELETE, DROPSITES_LOAD, DROPSITE_UPDATE } from '
 import dropSitesApi from '../services/dropSites-api';
 
 export function loadDropSites() {
+  console.log('loading drop sites');
   return async dispatch => {
     await dispatch({
       type: DROPSITES_LOAD,
@@ -9,15 +10,6 @@ export function loadDropSites() {
     });
   };
 }
-
-// export function loadDropSiteById(id) {
-//   return async dispatch => {
-//     await dispatch({
-//       type: DROPSITE_LOAD,
-//       payload: dropSites.get(id)
-//     });
-//   };
-// }
 
 export function addDropSite(dropSite) {
   return {

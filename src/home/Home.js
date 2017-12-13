@@ -6,6 +6,8 @@ import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
 import { loadUserById } from '../user/actions';
+import { checkForToken } from '../auth/actions';
+import { loadDropSites } from '../dropSites/actions';
 
 import { connect } from 'react-redux';
 
@@ -15,7 +17,9 @@ import '../style/mystyle.css';
 class Home extends Component {
 
   componentDidMount() {
-    this.props.loadUserById('5a3049a9b9b5be39a648906c');
+    this.props.checkForToken();
+    // this.props.loadDropSites();
+    // this.props.loadUserById('5a3049a9b9b5be39a648906c');
   }
 
   render() {
@@ -49,5 +53,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { loadUserById }
+  { loadUserById, checkForToken, loadDropSites }
 )(Home);
