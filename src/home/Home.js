@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import HomeInfo from './HomeInfo';
-import User from '../user/User';
+
 import DropSites from '../dropSites/DropSites';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
-import { loadUserById } from '../user/actions';
+
 import { checkForToken } from '../auth/actions';
 import { loadDropSites } from '../dropSites/actions';
 
@@ -52,5 +52,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { loadUserById, checkForToken, loadDropSites }
+  {  checkForToken, loadDropSites }
 )(Home);
