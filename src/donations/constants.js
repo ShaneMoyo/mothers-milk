@@ -1,1 +1,2 @@
 export const LOAD_DONATION = 'LOAD_DONATION';
+export const ADD_DONATION = 'ADD_DONATION';

@@ -14,7 +14,17 @@ export function loadDonations() {
 export function addDonation(donation) {
   return dispatch => {
     dispatch({
-      type: DONATION_ADD,
+      type: actions.ADD_DONATION,
       payload: donationApi.add(donation)
     });
-};
+  };
+}
+
+export function updateDonation(donation) {
+  return dispatch => {
+    dispatch({
+      type: actions.UPDATE_DONATION,
+      payload: donationApi.add(donation)
+    });
+  };
+}
