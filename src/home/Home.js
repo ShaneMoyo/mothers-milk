@@ -30,7 +30,7 @@ class Home extends Component {
         <HomeInfo/>
         <div className="need-space"></div>
         <h1>hello { users ? users.name : 'no user' }</h1>
-        <User users={users}/>
+        
         <div className="container is-fluid">
           <div className="need-space"></div>
           <div className="tile is-ancestor">
@@ -47,7 +47,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    users: state.auth.user
   };
 }
 

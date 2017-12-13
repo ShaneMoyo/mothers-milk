@@ -5,6 +5,7 @@ export default (state = {}, action) => combineReducers({ user, token, error, che
 
 export function user(state = null, { type, payload }) {
   switch(type) {
+    case actions.FETCHED_USER:
     case actions.FETCH_USER:
       return payload;
     case actions.LOGOUT:
