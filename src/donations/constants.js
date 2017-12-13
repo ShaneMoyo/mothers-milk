@@ -1,0 +1,1 @@
+export const LOAD_DONATION = 'LOAD_DONATION';
