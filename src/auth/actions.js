@@ -1,11 +1,11 @@
 import * as actions from './constants';
 import authApi from '../services/authApi';
+import dropSitesApi from '../services/dropSites-api';
 import { getStoredToken } from '../services/request';
 
 export function checkForToken() {
   return dispatch => {
     const token = getStoredToken();
-    console.log('token from check token', token );
     if(!token) {
       dispatch({ type: actions.CHECKED_TOKEN });
       return;

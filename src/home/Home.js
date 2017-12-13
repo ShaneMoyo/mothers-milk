@@ -23,6 +23,7 @@ class Home extends Component {
 
   render() {
     const { users } = this.props;
+    users && this.props.loadDropSites();
     return (
       <div>
         <Header/>
