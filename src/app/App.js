@@ -9,7 +9,6 @@ import { loadDropSites } from '../dropSites/actions';
 
 class App extends Component {
   componentDidMount() {
-    console.log('checking for token================');
     this.props.checkForToken();
     this.props.loadDropSites();
   }
@@ -25,9 +24,6 @@ class App extends Component {
 }
 
 export default connect(
-  ({ auth }) => ({ 
-    user: auth.user,
-    checkedToken: auth.checkedToken
-  }),
+  null,
   { checkForToken, loadDropSites }
 )(App);
