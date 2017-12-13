@@ -10,3 +10,11 @@ export function loadDonations() {
     });
   };
 }
+
+export function addDonation(donation) {
+  return dispatch => {
+    dispatch({
+      type: DONATION_ADD,
+      payload: donationApi.add(donation)
+    });
+};
