@@ -18,7 +18,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.checkForToken();
-    // this.props.loadDropSites();
+    this.props.loadDropSites();
     // this.props.loadUserById('5a3049a9b9b5be39a648906c');
   }
 

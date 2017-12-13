@@ -6,6 +6,7 @@ export default ({ submit, action, allowName = false }) => (
     e.preventDefault();
     const { elements } = e.target;
     const data = { email: elements.email.value, password: elements.password.value };
+    console.log('data', data);
     submit(data);
   }}>
 

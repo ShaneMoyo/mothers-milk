@@ -5,6 +5,7 @@ import { getStoredToken } from '../services/request';
 export function checkForToken() {
   return dispatch => {
     const token = getStoredToken();
+    console.log('token from check token', token );
     if(!token) {
       dispatch({ type: actions.CHECKED_TOKEN });
       return;

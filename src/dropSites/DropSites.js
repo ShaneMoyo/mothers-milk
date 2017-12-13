@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 class DropSites extends Component {
 
   componentDidMount() {
-    this.props.loadDropSites();
+    console.log('did mount drop sites');
+    //this.props.loadDropSites();
   }
 
   render() {
