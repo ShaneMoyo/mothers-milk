@@ -1,3 +1,4 @@
+
 import { USER_ADD, USER_DELETE, USERS_LOAD, USER_UPDATE, USER_LOAD } from './constants';
 
 export function users(state = {}, { type, payload }) {
@@ -19,6 +20,4 @@ export function users(state = {}, { type, payload }) {
     default:
       return state;
   } 
-
-
 }  

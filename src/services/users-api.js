@@ -1,7 +1,8 @@
 import api from './api';
+
 const settings = {
   headers: {
-    Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhMzA0OWE5YjliNWJlMzlhNjQ4OTA2YyIsInJvbGVzIjpbImFkbWluIl0sImlhdCI6MTUxMzExNDE3Mn0.NfQ9Z-DeSopMDbSVthr5Z_31u-Ygy82KuKMNeSVBVw4'
+    Authorization: ''
   }
 };
 
@@ -23,3 +24,4 @@ export default {
     return api.delete(`/users/${id}`);
   }
 };
+

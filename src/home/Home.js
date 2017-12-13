@@ -6,6 +6,7 @@ import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
 import Footer from './Footer';
 import { loadUserById } from '../user/actions';
+
 import { connect } from 'react-redux';
 
 import '../style/mystyle.css';
