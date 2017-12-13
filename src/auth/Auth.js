@@ -17,12 +17,13 @@ class Auth extends Component {
 
   handleSignUp = event => {
     event.preventDefault();
-    const { email, password, name } = event.target.elements;
+    const { email, password, name, roles } = event.target.elements;
     this.props.signup(
       { 
         name: name.value,
         email: email.value,
-        password: password.value 
+        password: password.value, 
+        roles: roles.value
       });
   }
 
@@ -36,6 +37,7 @@ class Auth extends Component {
         </form>
         <form onSubmit={event => this.handleSignUp(event)}>
           <label>name: <input name="name"/></label>
+          <label>roles: <input name="roles"/></label>
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
