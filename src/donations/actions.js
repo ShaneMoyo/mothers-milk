@@ -28,3 +28,12 @@ export function updateDonation(donation) {
     });
   };
 }
+
+export function deleteDonation(id) {
+  return dispatch => {
+    dispatch({
+      type: actions.DELETE_DONATION,
+      payload: donationApi.remove(id).then(() => id)
+    });
+  };
+}
