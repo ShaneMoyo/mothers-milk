@@ -15,10 +15,10 @@ class Auth extends Component {
       });
   }
 
-  handleSignIn = event => {
+  handleSignUp = event => {
     event.preventDefault();
     const { email, password, name } = event.target.elements;
-    this.props.signin(
+    this.props.signup(
       { 
         name: name.value,
         email: email.value,
@@ -49,5 +49,5 @@ export default connect(({ auth }) => ({
   error: auth.error,
   user: auth.user
 }),
-{ signin }
+{ signin, siginup }
 )(Auth);

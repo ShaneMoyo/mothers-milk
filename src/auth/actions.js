@@ -34,10 +34,7 @@ export function signin(credentials) {
 export function signup(credentials) {
   return dispatch => {
     return authApi.signup(credentials)
-      .then(({ token }) => dispatch({ type: actions.GOT_TOKEN, payload: token }))
-      .then(() => authApi.verify())
-      .then(id =>  authApi.getUser(id))
-      .then(user => dispatch({ type: actions.FETCHED_USER, payload: user }))
+      .then(({ token, newUser }) => dispatch({ type: actions.USER_CREATED, payload: newUser }))
       .catch(error => dispatch({ type: actions.AUTH_FAILED , payload: error }));
   };
 }
