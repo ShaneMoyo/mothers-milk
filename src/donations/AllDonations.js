@@ -7,6 +7,10 @@ class AllDonations extends PureComponent {
     editing: null
   }
 
+  componentDidMount(){
+    this.props.loadDonations()
+  }
+
   handleUpdate = (event, item) => {
     event.preventDefault();
     const { elements } = event.target;
@@ -47,7 +51,7 @@ class AllDonations extends PureComponent {
     
     return(
       <div>
-        <button onClick={loadDonations}>Load Donations</button>
+        <h3> All Donations </h3>
         <ul>
           {tableData}
         </ul>
