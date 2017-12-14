@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { loadDonations, updateDonation, deleteDonation } from './actions';
 import Table from '../tables/Table';
 
-class AllDonations extends PureComponent {
+class Alls extends PureComponent {
 
   render(){
     const { loadDonations, updateDonation, deleteDonation, donations, user } = this.props;
