@@ -7,6 +7,9 @@ import Admin from '../admin/Admin';
 import { connect } from 'react-redux';
 import { checkForToken } from '../auth/actions';
 import { loadDropSites } from '../dropSites/actions';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
+import Nav from '../auth/Nav';
 
 class App extends Component {
   
@@ -16,17 +19,29 @@ class App extends Component {
   }
 
   render() {
+    const { user, checkedToken } = this.props;
     return (
-      <div>
-        <Auth/>
-        <Admin/>
-        <Home/>
-      </div>
+      <Router>
+          { checkedToken &&
+            <div className="App">
+              <main>
+                <Routes/>
+              </main>
+            </div>
+          }
+      </Router>
     );
   }
 }
-
+{/* <div>
+        <Auth/>
+        <Admin/>
+        <Home/>
+      </div> */}
 export default connect(
-  null,
+  ({ auth }) => ({ 
+    user: auth.user,
+    checkedToken: auth.checkedToken
+}),
   { checkForToken, loadDropSites }
 )(App);
