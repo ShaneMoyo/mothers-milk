@@ -8,7 +8,7 @@ class AllDonations extends PureComponent {
   }
 
   componentDidMount(){
-    this.props.loadDonations()
+    this.props.loadDonations();
   }
 
   handleUpdate = (event, item) => {
