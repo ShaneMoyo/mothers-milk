@@ -1,4 +1,4 @@
-import { DROPSITE_ADD, DROPSITE_DELETE, DROPSITES_LOAD, DROPSITE_UPDATE } from './constants';
+import * as actions from './constants';
 import dropSitesApi from '../services/dropSites-api';
 
 export function loadDropSites() {
