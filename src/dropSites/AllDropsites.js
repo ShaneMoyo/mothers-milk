@@ -8,7 +8,7 @@ class AllDropSites extends PureComponent {
   }
 
   componentDidMount(){
-    this.props.loadDropSites()
+    this.props.loadDropSites();
   }
 
   handleUpdate = (event, item) => {
