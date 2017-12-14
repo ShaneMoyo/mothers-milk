@@ -7,7 +7,6 @@ class SupplyRequest extends Component {
   handleSupplyRequest = event => {
     event.preventDefault();
     const { bags, boxes } = event.target.elements;
-    console.log('in supply request with boxes and gas ', bags.value, boxes.value);
     const { user } = this.props;
     this.props.requestSupply(
       { 

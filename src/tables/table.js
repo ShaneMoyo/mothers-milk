@@ -8,7 +8,6 @@ class Table extends PureComponent {
   }
 
   componentDidMount(){
-    console.log('table loading!================================================')
     this.props.load()
   }
 
@@ -25,7 +24,7 @@ class Table extends PureComponent {
   }
 
   fieldCheck = item => {
-    console.log('I am the item in field check', item);
+   
     return typeof item === 'object' ? item.name : item
     };
 
