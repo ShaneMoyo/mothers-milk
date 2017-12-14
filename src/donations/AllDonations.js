@@ -44,8 +44,6 @@ class AllDonations extends PureComponent {
       );
     }): null;
     
-    
-    console.log(header);
     return(
       <div>
         <button onClick={loadDonations}>Load Donations</button>
