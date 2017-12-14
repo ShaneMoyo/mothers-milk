@@ -13,14 +13,10 @@ class AllDonations extends PureComponent {
 
   handleUpdate = (event, item) => {
     event.preventDefault();
-    const { elements } = event.target;
-    const updateObj = { ...item };
-    const elementMap = Object.values(elements);
-    const filterMap = elementMap.filter(ele => ele.value !== '');
-    filterMap.map(ele => {
-      return updateObj[ele.name] = ele.value;
-    });
-    this.props.updateDonation(updateObj);
+    const { elements: updates } = event.target;
+    const updatedFields = Object.values(updates).filter(field => field.value !== '');
+    updatedFields.forEach(field =>  item[field.name] = field.value);
+    this.props.updateDonation(item);
   }
 
   handleDelete = id=> {
@@ -32,9 +28,13 @@ class AllDonations extends PureComponent {
     const { editing } = this.state;
     
     const header = donations.length ? Object.keys(donations[0]) : null;
-    const headerItem = header ? header.map(item => <li style={{ display:'inline' }}>{typeof item !== 'object' ? item : item.name}</li>) : null; 
+
+    const headerItem = header ? header.map(item => <li style={{ display:'inline' }}>{typeof item !== 'object' ? item : item.name}</li>) : null;
+
     const id = header && header.shift();
+
     const updateInputs = header ? header.map(item => <input type="text" name={typeof item !== 'object' ? item : null} placeholder={typeof item !== 'object' ? item : item.name}/>) : null;
+    
     const tableData = donations.length ? donations.map(item => {
       const array = Object.values(item);
       const id = array.shift();
