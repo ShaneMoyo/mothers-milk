@@ -6,21 +6,21 @@ import { signout } from './actions';
 const NavLink = props => <Link {...props}/>;
 
 function Nav({ user, signout }) {
- const isAdmin = user ? user.roles.includes('admin') : false;
+  const isAdmin = user ? user.roles.includes('admin') : false;
   return (
     <nav>
       <ul>
-      { user &&
+        { user &&
         <li>
           { 
             isAdmin ?
-            <NavLink to="/admin">My Dashboard </NavLink> :
-            <NavLink to="/home">My Donations</NavLink> 
+              <NavLink to="/admin">My Dashboard </NavLink> :
+              <NavLink to="/home">My Donations</NavLink> 
           }
         </li>
-      }
+        }
         <li>
-          {user  && <NavLink to="/" onClick={signout}>Logout</NavLink>}
+          {/* {user  && <NavLink to="/" onClick={signout}>Logout</NavLink>} */}
         </li>
       </ul>
     </nav>
