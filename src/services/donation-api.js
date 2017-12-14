@@ -15,6 +15,7 @@ export default {
   },
 
   remove(id) {
+    console.log('iiiiidddddddddddddddd', id);
     return request.delete(`/donations/${id}`);
   }
 };

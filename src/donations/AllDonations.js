@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { loadDonations, updateDonation } from './actions';
+import { loadDonations, updateDonation, deleteDonation } from './actions';
 
 class AllDonations extends PureComponent {
   state = {
@@ -10,16 +10,17 @@ class AllDonations extends PureComponent {
   handleUpdate = (event, item) => {
     event.preventDefault();
     const { elements } = event.target;
-    console.log('before map ', item);
     const updateObj = { ...item };
     const elementMap = Object.values(elements);
     const filterMap = elementMap.filter(ele => ele.value !== '');
-    console.log('filtermap ==================', filterMap);
     filterMap.map(ele => {
       return updateObj[ele.name] = ele.value;
     });
-    console.log('updating too', updateObj);
     this.props.updateDonation(updateObj);
+  }
+
+  handleDelete = id=> {
+    this.props.deleteDonation(id);
   }
 
   render() {
@@ -37,7 +38,7 @@ class AllDonations extends PureComponent {
       return (
         <ul>
           {row}
-          <li style={{ display:'inline' }}><input type="button" value="X"/></li>
+          <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(id)}/></li>
           <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id })}/></li>
           { (editing === id) && <li><form onSubmit={event => this.handleUpdate(event, item)}>{updateInputs}<input type="submit"/></form></li>}
         </ul>
@@ -60,5 +61,5 @@ class AllDonations extends PureComponent {
 
 export default connect(
   ({ auth, donations }) => ({ user: auth.user, donations }),
-  { loadDonations, updateDonation }
+  { loadDonations, updateDonation, deleteDonation }
 )(AllDonations);
