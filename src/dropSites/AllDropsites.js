@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { loadDonations, updateDonation, deleteDonation } from './actions';
+import { loadDropsites, updateDropsite, deleteDropsite } from './actions';
 
-class AllDonations extends PureComponent {
+class AllDropSites extends PureComponent {
   state = {
     editing: null
   }

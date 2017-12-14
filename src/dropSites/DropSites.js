@@ -22,7 +22,6 @@ class DropSites extends Component {
           <h2 className="subtitle">Locations</h2>
           <ul>
             {listDropSites}
-          </ul>
         </div>
       </div>
     );
