@@ -8,6 +8,7 @@ import { checkForToken } from '../auth/actions';
 import { loadDropSites } from '../dropSites/actions';
 
 class App extends Component {
+  
   componentDidMount() {
     this.props.checkForToken();
     this.props.loadDropSites();

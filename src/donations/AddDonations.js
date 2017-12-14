@@ -12,13 +12,14 @@ class AddDonations extends Component {
       { 
         quantity: quantity.value,
         dropSite: dropSite.value,
-        donor: user._id
+        donor: user._id,
+        status: 'pending',
+        quantityReceived: 0
       });
   }
 
   render(){
     const { dropSites } = this.props;
-   
     const listOfDropSites = dropSites && dropSites.map(dropSite =>(
       <option key={dropSite._id} value={dropSite._id}>{dropSite.name}</option>
     ));
@@ -30,7 +31,7 @@ class AddDonations extends Component {
           <select name="dropSite">
             {listOfDropSites}
           </select>
-          <input type="submit" ></input>
+          <input type="submit"></input>
         </form>
       </div>
     );
