@@ -25,7 +25,7 @@ class Auth extends Component {
     
     return (
       <div>
-        <form className="column is-one-quarter" onSubmit={event => this.handleSignIn(event)}>
+        <form className="column is-one-quarter " onSubmit={event => this.handleSignIn(event)}>
           {!user && <div>
             <div class="control">
               <input className="input"  placeholder="email" name="email"/>
