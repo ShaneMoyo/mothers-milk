@@ -3,6 +3,7 @@ import './App.css';
 import Home from '../home/Home';
 import Auth from '../auth/Auth';
 import AllDonations from '../donations/AllDonations';
+import Admin from '../admin/Admin';
 import { connect } from 'react-redux';
 import { checkForToken } from '../auth/actions';
 import { loadDropSites } from '../dropSites/actions';
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <div>
         <Auth/>
-        <AllDonations/>
+        <Admin/>
         <Home/>
       </div>
     );
