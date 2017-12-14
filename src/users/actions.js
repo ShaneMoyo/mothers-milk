@@ -1,39 +1,29 @@
 import * as actions from './constants';
-import dropSitesApi from '../services/dropSites-api';
+import usersApi from '../services/users-api';
 
-export function loadDropSites() {
+export function loadUsers() {
   return dispatch => {
     dispatch({
-      type: DROPSITES_LOAD,
-      payload: dropSitesApi.get()
+      type: actions.LOAD_USERS,
+      payload: usersApi.get()
     });
   };
 }
 
-export function addDropSite(dropSite) {
+export function updateUser(dropSite) {
   return dispatch => {
     dispatch({
-      type: DROPSITE_ADD,
-      payload: dropSitesApi.add(dropSite)
+      type: actions.DELETE_USER,
+      payload: usersApi.update(dropSite)
     });
   };
 }
 
-
-export function updateDropSite(dropSite) {
+export function deleteUser(id) {
   return dispatch => {
     dispatch({
-      type: DROPSITE_UPDATE,
-      payload: dropSitesApi.update(dropSite)
-    });
-  };
-}
-
-export function deleteDropSite(id) {
-  return dispatch => {
-    dispatch({
-      type: DROPSITE_DELETE,
-      payload: dropSitesApi.remove(id).then(() => id) 
+      type: actions.DELETE_USER,
+      payload: usersApi.remove(id).then(() => id) 
     });
   };
 }
