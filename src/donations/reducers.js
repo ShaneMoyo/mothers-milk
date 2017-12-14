@@ -9,6 +9,8 @@ export default function donations(state = [], { type, payload }) {
         ...state,
         payload
       ];
+    case actions.LOGOUT: 
+      return [];
     case actions.DELETE_DONATION:
       return state.filter(donation => donation._id !== payload);
     case actions.UPDATE_DONATION:
