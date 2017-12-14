@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
 import { Link } from 'react-router-dom';
+import Home from '../home/Home';
+import Admin from '../admin/Admin';
 
 const NavLink = props => <Link {...props}/>;
 
@@ -32,6 +34,9 @@ class Auth extends Component {
   handleSignOut = () => this.props.signout();
 
   render(){
+    const { user } = this.props;
+    const isAdmin = user ? user.roles.includes('admin') : false;
+    const view = isAdmin ? <Admin/> : <Home/>
     return (
       <div>
         <form onSubmit={event => this.handleSignIn(event)}>
@@ -47,6 +52,7 @@ class Auth extends Component {
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
+        {user && view}
       </div>
     );
   }
