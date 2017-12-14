@@ -10,10 +10,13 @@ class AllDonations extends PureComponent {
   handleUpdate = (event, item) => {
     event.preventDefault();
     const { elements } = event.target;
-   
+    console.log('before map ', item);
     const updateObj = { ...item };
-    const elementMap = Object.values(elements).map(ele => {
-      if(ele) return updateObj[ele.name] = ele.value;
+    const elementMap = Object.values(elements);
+    const filterMap = elementMap.filter(ele => ele.value !== '');
+    console.log('filtermap ==================', filterMap);
+    filterMap.map(ele => {
+      return updateObj[ele.name] = ele.value;
     });
     console.log('updating too', updateObj);
     this.props.updateDonation(updateObj);
