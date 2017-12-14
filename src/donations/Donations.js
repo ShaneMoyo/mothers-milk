@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { loadDonations } from '../donations/actions';
+import { loadMyDonations } from '../donations/actions';
 import { connect } from 'react-redux';
 import { checkForToken } from '../auth/actions';
 import AddDonation from './AddDonations';
@@ -8,8 +8,9 @@ import AddDonation from './AddDonations';
 class Donations extends Component {
 
   componentDidMount() {
-    const {  loadDonations, user } = this.props; 
-    user && loadDonations();
+    const {  loadMyDonations, user } = this.props;
+    console.log('loading....DONATIONSSSSSSS') ;
+    loadMyDonations();
   }
 
   render() {
@@ -42,5 +43,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { loadDonations, checkForToken }
+  { loadMyDonations, checkForToken }
 )(Donations);

@@ -10,6 +10,15 @@ export function loadDonations() {
   };
 }
 
+export function loadMyDonations() {
+  return dispatch => {
+    dispatch({
+      type: actions.LOAD_DONATIONS,
+      payload: donationApi.getMy()
+    });
+  };
+}
+
 export function addDonation(donation) {
   return dispatch => {
     dispatch({

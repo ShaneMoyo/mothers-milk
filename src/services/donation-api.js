@@ -5,6 +5,9 @@ export default {
     const path = id ? `/donations/${id}` : '/donations';
     return request.get(path);
   },
+  getMy() {
+    return request.get('/donations/me');
+  },
 
   add(donation) {
     return request.post('/donations', donation);
@@ -15,7 +18,7 @@ export default {
   },
 
   remove(id) {
-    console.log('iiiiidddddddddddddddd', id);
+
     return request.delete(`/donations/${id}`);
   }
 };

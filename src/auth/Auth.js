@@ -19,9 +19,6 @@ class Auth extends Component {
       });
   }
 
-  
-
-  handleSignOut = () => this.props.signout();
 
   render(){
     const { user } = this.props;
