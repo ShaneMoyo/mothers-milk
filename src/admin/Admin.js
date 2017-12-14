@@ -31,8 +31,14 @@ render(){
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
+      <br/>
+      <h1> Donations </h1>
       <AllDonations/>
+      <br/>
+      <h1> Drop Sites </h1>
       <AllDropSites/>
+      <br/>
+      <h1> Users </h1>
       <AllUsers/>
     </div>
   );
