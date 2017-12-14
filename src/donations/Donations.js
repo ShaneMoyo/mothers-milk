@@ -22,7 +22,7 @@ class Donations extends Component {
           <ul>
             {donations.map((donation) => (
               <li key={donation._id}>
-                {donation.quantity}
+                {donation.quantity} status: {donation.status && donation.status}
               </li>
             ))}
           </ul>
