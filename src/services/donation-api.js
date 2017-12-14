@@ -11,7 +11,7 @@ export default {
   },
 
   update(donation) {
-    return request.put(`/donations/${donation._id}`, donation);
+    return request.update(`/donations/${donation._id}`, donation);
   },
 
   remove(id) {
