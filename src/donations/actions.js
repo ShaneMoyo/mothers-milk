@@ -23,7 +23,7 @@ export function updateDonation(donation) {
   return dispatch => {
     dispatch({
       type: actions.UPDATE_DONATION,
-      payload: donationApi.add(donation)
+      payload: donationApi.update(donation)
     });
   };
 }
