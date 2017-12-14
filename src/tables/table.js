@@ -24,7 +24,7 @@ class Table extends PureComponent {
     this.props.remove(id);
   }
 
-  fieldCheck = item => typeof item !== 'object' ? item : item.name;
+  fieldCheck = item => typeof item === 'object' ? item.name : item;
 
   render() {
     const { user, data, dataType } = this.props;
