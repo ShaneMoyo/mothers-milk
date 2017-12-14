@@ -23,28 +23,28 @@ class AllDonations extends PureComponent {
     this.props.deleteDonation(id);
   }
 
+  fieldCheck = item => typeof item !== 'object' ? item : item.name;
+
   render() {
     const { user, donations, loadDonations } = this.props;
     const { editing } = this.state;
-    
-    const header = donations.length ? Object.keys(donations[0]) : null;
 
-    const headerItem = header ? header.map(item => <li style={{ display:'inline' }}>{typeof item !== 'object' ? item : item.name}</li>) : null;
+    console.log('donationssss', donations)
 
-    const id = header && header.shift();
+    const fields = donations.length && Object.keys(donations[0]);
+    fields && fields.shift();
 
-    const updateInputs = header ? header.map(item => <input type="text" name={typeof item !== 'object' ? item : null} placeholder={typeof item !== 'object' ? item : item.name}/>) : null;
-    
-    const tableData = donations.length ? donations.map(item => {
-      const array = Object.values(item);
-      const id = array.shift();
-      const row = array.map((value, index) => <li style={{ display:'inline' }}>{typeof value !== 'object' ? value : value.name}</li>);
+    const updateInputs = fields ? fields.map(item => <input type="text" name={typeof item !== 'object' ? item : null} placeholder={this.fieldCheck(item)}/>) : null;
+    const tableData = fields ? donations.map(item => {
+      const rowData = Object.values(item);
+      const id = rowData.shift();
+      const row = rowData.map((value, index) => <li style={{ display:'inline' }}>{this.fieldCheck(value)}</li>);
       return (
         <ul>
           {row}
           <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(id)}/></li>
           <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id })}/></li>
-          { (editing === id) && <li><form onSubmit={event => this.handleUpdate(event, item)}>{updateInputs}<input type="submit"/></form></li>}
+          {(editing === id) && <li><form onSubmit={event => this.handleUpdate(event, item)}>{updateInputs}<input type="submit"/></form></li>}
         </ul>
       );
     }): null;
