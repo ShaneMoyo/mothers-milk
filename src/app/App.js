@@ -22,16 +22,16 @@ class App extends Component {
     const { user, checkedToken } = this.props;
     return (
       <div>
-      <Router>
+        <Router>
           { checkedToken &&
             <div className="App">
-              <Nav/>  
+              {/* <Nav/>   */}
               <main>
                 <Routes/>
               </main>
             </div>
           }
-      </Router>
+        </Router>
       </div>
     );
   }
@@ -41,6 +41,6 @@ export default connect(
   ({ auth }) => ({ 
     user: auth.user,
     checkedToken: auth.checkedToken
-}),
+  }),
   { checkForToken, loadDropSites }
 )(App);

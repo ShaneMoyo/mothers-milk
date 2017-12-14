@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Home from '../home/Home';
 import Admin from '../admin/Admin';
-
-const NavLink = props => <Link {...props}/>;
 
 class Auth extends Component {
 
@@ -21,21 +19,29 @@ class Auth extends Component {
 
 
   render(){
-    const { user } = this.props;
+    const { user , signout } = this.props;
     const isAdmin = user ? user.roles.includes('admin') : false;
-    const view = isAdmin ? <Admin/> : <Home/>
+    const view = isAdmin ? <Admin/> : <Home/> ;
+    
     return (
       <div>
-        <form onSubmit={event => this.handleSignIn(event)}>
-          <label>email: <input name="email"/></label>
-          <label>password: <input type="password" name="password"/></label>
-          <input type="submit"/>
+        <form className="column is-one-quarter" onSubmit={event => this.handleSignIn(event)}>
+          {!user && <div>
+            <div class="control">
+              <input className="input"  placeholder="email" name="email"/>
+            </div>
+            <input className="input" type="password" placeholder="password" name="password"/>
+            <input className="button" type="submit"/>
+          </div>}
+          {user  && <NavLink className="button" to="/" onClick={signout}>Logout</NavLink>}
         </form>
         {user && view}
       </div>
     );
   }
 }
+
+
 
 export default connect(({ auth }) => ({
   error: auth.error,
