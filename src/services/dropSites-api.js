@@ -11,7 +11,7 @@ export default {
   },
 
   update(dropSite) {
-    return request.put(`/dropSites/${dropSite._id}`, dropSite);
+    return request.update(`/dropSites/${dropSite._id}`, dropSite);
   },
 
   remove(id) {

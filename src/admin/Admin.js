@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AllDonations from '../donations/AllDonations';
+import AllDropSites from '../dropSites/AllDropSites';
 import { signup } from '../auth/actions';
 
 
@@ -30,6 +31,7 @@ render(){
           <input type="submit" ></input>
         </form>
       <AllDonations/>
+      <AllDropSites/>
     </div>
   );
 }
