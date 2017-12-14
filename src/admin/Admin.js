@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AllDonations from '../donations/AllDonations';
 import AllDropSites from '../dropSites/AllDropSites';
+import AllUsers from '../users/AllUsers';
 import { signup } from '../auth/actions';
 
 
@@ -32,6 +33,7 @@ render(){
         </form>
       <AllDonations/>
       <AllDropSites/>
+      <AllUsers/>
     </div>
   );
 }

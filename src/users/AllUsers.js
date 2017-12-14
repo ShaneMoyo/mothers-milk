@@ -1,19 +1,19 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { loadDonations, updateDonation, deleteDonation } from './actions';
+import { loadUsers, updateUser, deleteUser } from './actions';
 import Table from '../tables/Table';
 
-class Alls extends PureComponent {
+class AllUsers extends PureComponent {
 
   render(){
-    const { loadDonations, updateDonation, deleteDonation, donations, user } = this.props;
+    const { loadUsers, updateUser, deleteUser, users, user } = this.props;
     return(
-      <Table load={loadDonations} update={updateDonation} remove={deleteDonation} data={donations} user={user}/>
+      <Table load={loadUsers} update={updateUser} remove={deleteUser} data={users} user={user}/>
     );
   }
 }
 
 export default connect(
-  ({ auth, donations }) => ({ user: auth.user, donations }),
-  { loadDonations, updateDonation, deleteDonation }
-)(AllDonations);
+  ({ auth, users }) => ({ user: auth.user, users }),
+  { loadUsers, updateUser, deleteUser }
+)(AllUsers);
