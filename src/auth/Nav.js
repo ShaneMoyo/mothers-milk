@@ -12,7 +12,7 @@ function Nav({ user, signout }) {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/home">donor</NavLink></li>
         <li>
-          {!user  && <NavLink to="/" onClick={signout}>Logout</NavLink>}
+          {user  && <NavLink to="/" onClick={signout}>Logout</NavLink>}
         </li>
       </ul>
     </nav>

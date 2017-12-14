@@ -21,15 +21,18 @@ class App extends Component {
   render() {
     const { user, checkedToken } = this.props;
     return (
+      <div>
       <Router>
           { checkedToken &&
             <div className="App">
+              <Nav/>  
               <main>
                 <Routes/>
               </main>
             </div>
           }
       </Router>
+      </div>
     );
   }
 }
