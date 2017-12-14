@@ -5,6 +5,7 @@ export default {
     const path = id ? `/donations/${id}` : '/donations';
     return request.get(path);
   },
+  
   getMy() {
     return request.get('/donations/me');
   },

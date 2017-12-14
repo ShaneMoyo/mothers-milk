@@ -13,7 +13,7 @@ class SupplyRequest extends Component {
       { 
         bags: bags.value,
         boxes: boxes.value,
-        Donor: user._id
+        donor: user._id
       });
   }
 
