@@ -9,7 +9,6 @@ class Donations extends Component {
 
   componentDidMount() {
     const {  loadMyDonations, user } = this.props;
-    console.log('loading....DONATIONSSSSSSS') ;
     loadMyDonations();
   }
 
