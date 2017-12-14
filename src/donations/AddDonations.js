@@ -12,7 +12,7 @@ class AddDonations extends Component {
       { 
         quantity: quantity.value,
         dropSite: dropSite.value,
-        Donor: user._id
+        donor: user._id
       });
   }
 
