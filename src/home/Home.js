@@ -9,6 +9,7 @@ import { loadDropSites } from '../dropSites/actions';
 import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
 import '../style/mystyle.css';
+import Auth from '../auth/Auth';
 
 
 class Home extends Component {
