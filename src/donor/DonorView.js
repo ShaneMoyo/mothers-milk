@@ -3,7 +3,7 @@ import DonorInfo from './DonorInfo';
 import DropSites from '../dropSites/DropSites';
 import Donations from '../donations/Donations';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
-import Header from '../home/Header';
+// import Header from '../home/Header';
 import Footer from '../home/Footer';
 import { loadDropSites } from '../dropSites/actions';
 import { loadDonations } from '../donations/actions';
@@ -21,7 +21,6 @@ class DonorView extends Component {
 
     return (
       <div>
-        <Header/>
         <h1>hello { user ? user.name : 'no user' }</h1>
         <DonorInfo/>
         <div className="need-space"></div>
@@ -34,7 +33,6 @@ class DonorView extends Component {
           </div>
           <div className="need-space"></div>
         </div>
-        <Footer/>
       </div>
     );
   }
