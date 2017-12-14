@@ -9,7 +9,6 @@ class Donations extends Component {
 
   componentDidMount() {
     const {  loadMyDonations, user } = this.props;
-    console.log('loading....DONATIONSSSSSSS') ;
     loadMyDonations();
   }
 
@@ -19,7 +18,8 @@ class Donations extends Component {
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
-          <h2 className="subtitle">Donations</h2>
+          <h2 className="subtitle">Ready to Donate?</h2>
+          <AddDonation user={user}/>
           <ul>
             {donations.map((donation) => (
               <li key={donation._id}>
@@ -27,7 +27,7 @@ class Donations extends Component {
               </li>
             ))}
           </ul>
-          <AddDonation user={user}/>
+          
         </div>
       </div>
     );
