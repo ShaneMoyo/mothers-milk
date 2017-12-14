@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
+import { Link } from 'react-router-dom';
 
+const NavLink = props => <Link {...props}/>;
 
 class Auth extends Component {
 
@@ -35,7 +37,7 @@ class Auth extends Component {
         <form onSubmit={event => this.handleSignIn(event)}>
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
-          <input type="submit" ></input>
+          <input type="submit"/>
         </form>
         <h3>Create New User:</h3>
         <form onSubmit={event => this.handleSignUp(event)}>
@@ -45,7 +47,6 @@ class Auth extends Component {
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
-        <input type="submit" value="sign out" onClick={this.handleSignOut}></input>
       </div>
     );
   }

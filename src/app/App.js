@@ -36,11 +36,7 @@ class App extends Component {
     );
   }
 }
-{/* <div>
-        <Auth/>
-        <Admin/>
-        <Home/>
-      </div> */}
+
 export default connect(
   ({ auth }) => ({ 
     user: auth.user,

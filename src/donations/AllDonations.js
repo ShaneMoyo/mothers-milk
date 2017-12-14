@@ -49,9 +49,6 @@ class AllDonations extends PureComponent {
       <div>
         <button onClick={loadDonations}>Load Donations</button>
         <ul>
-          <li>
-            {headerItem} 
-          </li>
           {tableData}
         </ul>
       </div>
