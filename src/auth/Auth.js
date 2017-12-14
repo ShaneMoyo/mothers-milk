@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
 import { NavLink } from 'react-router-dom';
-import Home from '../home/Home';
+import DonorView from '../donor/DonorView';
 import Admin from '../admin/Admin';
 
 class Auth extends Component {
@@ -21,7 +21,7 @@ class Auth extends Component {
   render(){
     const { user , signout } = this.props;
     const isAdmin = user ? user.roles.includes('admin') : false;
-    const view = isAdmin ? <Admin/> : <Home/> ;
+    const view = isAdmin ? <Admin/> : <DonorView/> ;
     
     return (
       <div>

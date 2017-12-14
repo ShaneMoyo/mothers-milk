@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import HomeInfo from './HomeInfo';
+import DonorInfo from './DonorInfo';
 import DropSites from '../dropSites/DropSites';
 import Donations from '../donations/Donations';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../auth/Header';
+import Footer from '../auth/Footer';
 import { loadDropSites } from '../dropSites/actions';
 import { loadDonations } from '../donations/actions';
 import { connect } from 'react-redux';
 import '../style/mystyle.css';
 
 
-class Home extends Component {
+class DonorView extends Component {
 
   render() {
 
@@ -23,7 +23,7 @@ class Home extends Component {
       <div>
         <Header/>
         <h1>hello { user ? user.name : 'no user' }</h1>
-        <HomeInfo/>
+        <DonorInfo/>
         <div className="need-space"></div>
         <div className="container is-fluid">
           <div className="need-space"></div>
@@ -45,4 +45,4 @@ class Home extends Component {
 export default connect(
   ({ auth, donations }) => ({ user: auth.user, donations }),
   { loadDropSites, loadDonations }
-)(Home);
+)(DonorView);

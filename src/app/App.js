@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from '../home/Home';
+import DonorView from '../donor/DonorView';
 import Auth from '../auth/Auth';
 import AllDonations from '../donations/AllDonations';
 import Admin from '../admin/Admin';
