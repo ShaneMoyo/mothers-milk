@@ -1,31 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signout } from './actions';
 
-const NavLink = props => <Link {...props}/>;
 
 function Nav({ user, signout }) {
   const isAdmin = user ? user.roles.includes('admin') : false;
   return (
-    <nav>
-      <ul>
+    <div  className="navbar-menu">
+      <div className="navbar">
         { user &&
-        <li>
+        <div>
           { 
             isAdmin ?
-              <NavLink to="/admin">My Dashboard </NavLink> :
-              <NavLink to="/home">My Donations</NavLink> 
+              <NavLink className="navbar-item" to="/admin">My Dashboard </NavLink> :
+              <NavLink className="navbar-item" to="/home">My Donations</NavLink> 
           }
-        </li>
+        </div>
         }
-        <li>
-          {/* {user  && <NavLink to="/" onClick={signout}>Logout</NavLink>} */}
-        </li>
-      </ul>
-    </nav>
+      </div>
+    </div>
   );
 }
+
 
 export default connect(
   state => ({ user: state.auth.user }),
