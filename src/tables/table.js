@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { loadDonations, updateDonation, deleteDonation } from './actions';
 
-class AllDonations extends PureComponent {
+
+class Table extends PureComponent {
   state = {
     editing: null
   }
 
   componentDidMount(){
-    this.props.loadDonations()
+    console.log('table loading!..........')
+    this.props.load()
   }
 
   handleUpdate = (event, item) => {
@@ -16,24 +17,24 @@ class AllDonations extends PureComponent {
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
     updatedFields.forEach(field =>  item[field.name] = field.value);
-    this.props.updateDonation(item);
+    this.props.update(item);
   }
 
   handleDelete = id=> {
-    this.props.deleteDonation(id);
+    this.props.remove(id);
   }
 
   fieldCheck = item => typeof item !== 'object' ? item : item.name;
 
   render() {
-    const { user, donations, loadDonations } = this.props;
+    const { user, data, dataType } = this.props;
     const { editing } = this.state;
 
-    const fields = donations.length && Object.keys(donations[0]);
+    const fields = data.length && Object.keys(data[0]);
     fields && fields.shift();
 
     const updateInputs = fields ? fields.map(item => <input type="text" name={typeof item !== 'object' ? item : null} placeholder={this.fieldCheck(item)}/>) : null;
-    const tableData = fields ? donations.map(item => {
+    const tableData = fields ? data.map(item => {
       const rowData = Object.values(item);
       const id = rowData.shift();
       const row = rowData.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
@@ -49,7 +50,7 @@ class AllDonations extends PureComponent {
     
     return(
       <div>
-        <h3> All Donations </h3>
+        <h3>{dataType}</h3>
         <ul>
           {tableData}
         </ul>
@@ -60,7 +61,4 @@ class AllDonations extends PureComponent {
 
 
 
-export default connect(
-  ({ auth, donations }) => ({ user: auth.user, donations }),
-  { loadDonations, updateDonation, deleteDonation }
-)(AllDonations);
+export default Table;
