@@ -36,7 +36,7 @@ class AllDropSites extends PureComponent {
     const tableData = fields ? dropSites.map(item => {
       const rowData = Object.values(item);
       const id = rowData.shift();
-      const row = rowData.map((value, index) => <li style={{ display:'inline' }}>{this.fieldCheck(value)}</li>);
+      const row = rowData.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
       return (
         <ul>
           {row}
