@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import DonorView from '../donor/DonorView';
 import Admin from '../admin/Admin';
 
-class Auth extends Component {
+class Home extends Component {
 
   handleSignIn = event => {
     event.preventDefault();
@@ -48,4 +48,4 @@ export default connect(({ auth }) => ({
   user: auth.user
 }),
 { signin, signup, signout }
-)(Auth);
+)(Home);

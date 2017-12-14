@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import DonorView from '../donor/DonorView';
-import Auth from '../auth/Auth';
+import Home from '../home/Home';
 import AllDonations from '../donations/AllDonations';
 import Admin from '../admin/Admin';
 import { connect } from 'react-redux';
-import { checkForToken } from '../auth/actions';
+import { checkForToken } from '../home/actions';
 import { loadDropSites } from '../dropSites/actions';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
-import Nav from '../auth/Nav';
+import Nav from '../home/Nav';
 
 class App extends Component {
   
