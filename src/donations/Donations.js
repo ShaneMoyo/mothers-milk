@@ -32,7 +32,7 @@ class Donations extends Component {
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
-          <a className="subtitle has-text-primary hover" onClick={this.handleClick}>Ready to Donate?</a>
+          <a className="subtitle has-text-primary link-hover" onClick={this.handleClick}>Ready to Donate?</a>
           {displayMain &&
           <div>
             <hr/>
