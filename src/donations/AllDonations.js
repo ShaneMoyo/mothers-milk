@@ -34,8 +34,9 @@ class AllDonations extends PureComponent {
     const { editing } = this.state;
 
     const tabledonations = donations.length ? donations.map(item => {
-      const rowdonations = Object.values(item).filter(item => item !== null);
+      let rowdonations = Object.values(item).filter(item => item !== null);
       const id = rowdonations.shift();
+      rowdonations = rowdonations.filter(data => data !== 0);
       const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
       return (
         <ul>
