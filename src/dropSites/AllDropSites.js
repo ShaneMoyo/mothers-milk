@@ -48,7 +48,7 @@ class AllDropSites extends PureComponent {
               <input type="text" name="name" placeholder="Name"/>
               <input type="text" name="address" placeholder="Address"/>
               <input type="text" name="hours" placeholder="Hours"/>
-              <input type="submit"/>
+              <input type="submit" value="Update"/>
             </form>
           </li>}
         </ul>

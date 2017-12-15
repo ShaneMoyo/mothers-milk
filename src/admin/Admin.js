@@ -64,5 +64,5 @@ export default connect(({ auth }) => ({
   error: auth.error,
   user: auth.user
 }),
-{ signup, addDropSite}
+{ signup, addDropSite }
 )(Admin);

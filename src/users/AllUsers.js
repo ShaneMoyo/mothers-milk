@@ -50,14 +50,14 @@ class AllUsers extends PureComponent {
           {row}
           <li style={{ display:'inline', margin:'5px' }}>{item.roles[0]}</li>
           <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(id)}/></li>
-          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id })}/></li>
-          {(editing === id) && 
+          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id, show: !this.state.show })}/></li>
+          {((editing === id) && (this.state.show)) &&
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <input type="text" name="name" placeholder="Name"/>
               <input type="text" name="email" placeholder="Email"/>
               <input type="text" name="roles" placeholder="Roles"/>
-              <input type="submit"/>
+              <input type="submit" value="Update"/>
             </form>
           </li>}
         </ul>
