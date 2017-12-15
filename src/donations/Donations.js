@@ -18,15 +18,16 @@ class Donations extends Component {
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
-          <h2 className="subtitle">Donations</h2>
-          <ul>
+          <h2 className="subtitle">Ready to Donate?</h2>
+          <AddDonation user={user}/>
+          {/* <ul>
             {donations.map((donation) => (
               <li key={donation._id}>
                 {donation.quantity} status: {donation.status && donation.status}
               </li>
             ))}
-          </ul>
-          <AddDonation user={user}/>
+          </ul> */}
+          
         </div>
       </div>
     );

@@ -21,15 +21,19 @@ class DonorView extends Component {
 
     return (
       <div>
-        <h1>hello { user ? user.name : 'no user' }</h1>
-        <DonorInfo/>
-        <div className="need-space"></div>
+        <div>
+          <br/><br/>
+          <h1 className="title">Welcome { user ? user.name : '' }</h1>
+          <h2 className="subtitle">Thank you for participating in the milk drop program.</h2>
+        </div>
+        {/* <div className="need-space"></div> */}
         <div className="container is-fluid">
           <div className="need-space"></div>
           <div className="tile is-ancestor">
-            <DropSites/>
             <Donations/>
+            <DropSites/>
             <SupplyRequest/>
+            <DonorInfo/>
           </div>
           <div className="need-space"></div>
         </div>
