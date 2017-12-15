@@ -60,11 +60,10 @@ class AllDonations extends PureComponent {
     }): null;
     
     return(
-      <div>
+      <div className="column is-6 is-offset-3">
         <h3 className="title is-4">Donations</h3>
-        <ul>
-          {tabledonations}
-        </ul>
+        {tabledonations}
+        <hr/>
       </div>
     );
   }
