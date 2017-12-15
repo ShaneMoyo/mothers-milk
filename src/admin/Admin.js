@@ -32,7 +32,6 @@ class Admin extends Component {
           <input type="submit" ></input>
         </form>
         <br/>
-        <h1> Donations </h1>
         <AllDonations/>
         <br/>
         <h1> Drop Sites </h1>

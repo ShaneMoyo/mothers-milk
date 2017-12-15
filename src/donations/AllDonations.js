@@ -33,8 +33,7 @@ class AllDonations extends PureComponent {
     const { donations } = this.props;
     const { editing } = this.state;
 
-
-      const tabledonations = donations.length ? donations.map(item => {
+    const tabledonations = donations.length ? donations.map(item => {
       const rowdonations = Object.values(item).filter(item => item !== null);
       const id = rowdonations.shift();
       const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
@@ -57,7 +56,7 @@ class AllDonations extends PureComponent {
     
     return(
       <div>
-        <h3>Donations ZZZZ</h3>
+        <h3>Donations</h3>
         <ul>
           {tabledonations}
         </ul>
