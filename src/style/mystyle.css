@@ -6497,3 +6497,12 @@ label.panel-block {
 .footer {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
+
+.header {
+  margin-top: 2%; }
+  @media (min-width: 768px) {
+    .header {
+      border-bottom: 2px #A4A4A4 solid; } }
+
+.signInForm {
+  margin-top: 1em; }

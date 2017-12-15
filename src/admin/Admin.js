@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AllDonations from '../donations/AllDonations';
 import AllDropSites from '../dropSites/AllDropSites';
+import AllUsers from '../users/AllUsers';
 import { signup } from '../home/actions';
 
 
@@ -30,8 +31,15 @@ class Admin extends Component {
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
+        <br/>
+        <h1> Donations </h1>
         <AllDonations/>
+        <br/>
+        <h1> Drop Sites </h1>
         <AllDropSites/>
+        <br/>
+        <h1> Users </h1>
+        <AllUsers/>
       </div>
     );
   }

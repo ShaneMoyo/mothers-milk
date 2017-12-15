@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import DonorView from '../donor/DonorView';
 import Admin from '../admin/Admin';
 
@@ -20,10 +20,13 @@ class Header extends Component {
   render(){
     const { user , signout } = this.props;    
     return (
-      <section className="section hero is-info">
-        
-        <div className="tile level-right">
-          <form className="field" onSubmit={event => this.handleSignIn(event)}>
+      <header className="columns header">
+        <div className="column is-3 is-offset-1">
+          <Link to="/"><img alt="logo" src="/images/logo.jpg"/></Link>
+        </div>
+       
+        <div className="column is-2 is-offset-5">
+          <form className="field signInForm" onSubmit={event => this.handleSignIn(event)}>
             {!user && <div>
               <div className="control">
                 <input className="input"  placeholder="email" name="email"/>
@@ -38,8 +41,7 @@ class Header extends Component {
             {user  && <NavLink className="button" to="/" onClick={signout}>Logout</NavLink>}
           </form>
         </div>
-
-      </section>
+      </header>
     );
   }
 }

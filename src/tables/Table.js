@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { loadDropSites, updateDropSite, deleteDropSite } from './actions';
 
-class AllDropSites extends PureComponent {
+
+class Table extends PureComponent {
   state = {
     editing: null
   }
 
   componentDidMount(){
-    this.props.loadDropSites();
+    this.props.load()
   }
 
   handleUpdate = (event, item) => {
@@ -16,27 +16,31 @@ class AllDropSites extends PureComponent {
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
     updatedFields.forEach(field =>  item[field.name] = field.value);
-    this.props.updateDropSite(item);
+    this.props.update(item);
   }
 
   handleDelete = id=> {
-    this.props.deleteDropsite(id);
+    this.props.remove(id);
   }
 
-  fieldCheck = item => typeof item !== 'object' ? item : item.name;
+  fieldCheck = item => {
+   
+    return typeof item === 'object' ? item.name : item
+    };
 
   render() {
-    const { user, dropSites, loadDropsites } = this.props;
+    
+    const { user, data, dataType } = this.props;
     const { editing } = this.state;
-
-    const fields = dropSites.length && Object.keys(dropSites[0]);
+    let fields = null;
+    if(data) fields = data.length && Object.keys(data[0]);
     fields && fields.shift();
 
     const updateInputs = fields ? fields.map(item => <input type="text" name={typeof item !== 'object' ? item : null} placeholder={this.fieldCheck(item)}/>) : null;
-    const tableData = fields ? dropSites.map(item => {
-      const rowData = Object.values(item);
+    const tableData = fields ? data.map(item => {
+      const rowData = Object.values(item).filter(item => item !== null)
       const id = rowData.shift();
-      const row = rowData.map((value, index) => <li style={{ display:'inline' }}>{this.fieldCheck(value)}</li>);
+      const row = rowData.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
       return (
         <ul>
           {row}
@@ -49,7 +53,7 @@ class AllDropSites extends PureComponent {
     
     return(
       <div>
-        <h3> All dropSites </h3>
+        <h3>{dataType}</h3>
         <ul>
           {tableData}
         </ul>
@@ -58,7 +62,6 @@ class AllDropSites extends PureComponent {
   }
 }
 
-export default connect(
-  ({ auth, dropSites }) => ({ user: auth.user, dropSites }),
-  { loadDropSites, updateDropSite, deleteDropSite }
-)(AllDropSites);
+
+
+export default Table;
