@@ -2,8 +2,9 @@
 @import "../../node_modules/bulma/sass/utilities/functions";
 
 $primary: #B163A3;
-$danger:  rgba(177, 99, 163, 0.72);
-$info: rgba(177, 99, 163, 0.72);
+$danger:  rgba(177, 99, 163, 0.4);
+$info: rgba(177, 99, 164, 0.7);
+$warning:rgba(99, 168, 177, 0.66);
 $success : #A4A4A4;
 
 $space: 20px;
@@ -61,4 +62,9 @@ span {
 
 .signInForm {
     margin-top: 1em;
+}
+
+.inputLabel {
+    width:68%;
+    display: inline-block
 }

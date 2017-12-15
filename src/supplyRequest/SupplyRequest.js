@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import { requestSupply } from './actions';
 
 class SupplyRequest extends Component {
+  constructor(){
+    super();
+    this.state={ display: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  
 
   handleSupplyRequest = event => {
     event.preventDefault();
@@ -16,11 +22,12 @@ class SupplyRequest extends Component {
       });
   }
 
-
-  
-
+  handleClick() {
+    this.setState({ display: !this.state.display });
+  }
   render() {
-    const { bags, boxes } = this.props;
+    const { bags } = this.props;
+   
     return (
 
       <div className="tile is-4 is-vertical is-parent">
