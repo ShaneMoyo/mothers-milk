@@ -47,7 +47,7 @@ class AllDonations extends PureComponent {
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <select name="status">
-                <option key="0" value="pending">pending</option>
+                <option key="0" value="Pending">Pending</option>
                 <option key="1" value="Received">Received</option>
                 <option key="2" value="Missing">Missing</option>
               </select>
