@@ -12,11 +12,14 @@ import '../style/mystyle.css';
 
 
 class DonorView extends Component {
+  componentDidMount() {
+    this.props.loadDropSites();
+  }
 
   render() {
 
     const { user, donations } = this.props;
-    user && this.props.loadDropSites();
+
     //user && this.props.loadDonations();
 
     return (

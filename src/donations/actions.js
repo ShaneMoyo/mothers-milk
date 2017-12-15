@@ -2,12 +2,11 @@ import * as actions from './constants';
 import donationApi from '../services/donation-api';
 import io from 'socket.io-client';
 
-export function loadDonations() {
-  const socket = io({
-    path: '/socket'
-  });
+const socket = io({
+  path: '/socket'
+});
 
-  socket.removeAllListeners('newDonation');
+export function loadDonations() {
 
   return dispatch => {
     dispatch({
@@ -16,7 +15,7 @@ export function loadDonations() {
     });
     
     //Socket code, listening for 'newDonation' message
-    
+   
     socket.on('newDonation', donation => {
       console.log('heard newDonation');
       dispatch({
@@ -35,10 +34,7 @@ export function loadMyDonations() {
       payload: donationApi.getMy()
     });
 
-    //Socket code, listening for 'updatedDonation' message
-    const socket = io({
-      path: '/socket'
-    });
+    // Socket code, listening for 'updatedDonation' message
 
     socket.on('updatedDonation', donation => {
       dispatch({
@@ -65,7 +61,6 @@ export function updateDonation(donation) {
       type: actions.UPDATE_DONATION,
       payload: donationApi.update(donation)
     });
-    
   };
 }
 

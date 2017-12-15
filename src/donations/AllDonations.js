@@ -8,10 +8,6 @@ class AllDonations extends PureComponent {
     editing: null
   }
 
-  componentDidMount(){
-    this.props.loadDonations();
-  }
-
   handleUpdate = (event, item) => {
     event.preventDefault();
     const { elements: updates } = event.target;

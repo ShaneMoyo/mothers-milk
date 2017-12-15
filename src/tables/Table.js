@@ -8,7 +8,7 @@ class Table extends PureComponent {
   }
 
   componentDidMount(){
-    this.props.load()
+    this.props.load();
   }
 
   handleUpdate = (event, item) => {
