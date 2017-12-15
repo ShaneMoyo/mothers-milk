@@ -6,12 +6,12 @@ import Table from '../tables/Table';
 class AllDropSites extends PureComponent {
 
   render(){
-      const { loadDropSites, updateDropSite, deleteDropSite, dropSites, user } = this.props;
-      return(
-        <Table load={loadDropSites} update={updateDropSite} remove={deleteDropSite} data={dropSites} user={user}/>
-      );
-    }
+    const { loadDropSites, updateDropSite, deleteDropSite, dropSites, user } = this.props;
+    return(
+      <Table load={loadDropSites} update={updateDropSite} remove={deleteDropSite} data={dropSites} user={user}/>
+    );
   }
+}
 
 export default connect(
   ({ auth, dropSites }) => ({ user: auth.user, dropSites }),
