@@ -5,7 +5,10 @@ import { requestSupply } from './actions';
 class SupplyRequest extends Component {
   constructor(){
     super();
-    this.state={ display: false };
+    this.state = { 
+      display: false,
+      ordering: false
+    };
     this.handleClick = this.handleClick.bind(this);
   }
   
@@ -14,19 +17,22 @@ class SupplyRequest extends Component {
     event.preventDefault();
     const { bags, boxes } = event.target.elements;
     const { user } = this.props;
+    this.setState({ ordering: true });
     this.props.requestSupply(
       { 
         bags: bags.value,
         boxes: boxes.value,
         donor: user._id
       });
+
+    console.log('supply request1', bags.value, boxes.value);
   }
 
   handleClick() {
     this.setState({ display: !this.state.display });
   }
   render() {
-    const { bags } = this.props;
+    const { bags, boxes } = this.props;
    
     return (
       <div className="tile is-parent">
@@ -64,7 +70,7 @@ class SupplyRequest extends Component {
                 </div>
                 <div className="need-space"></div>
                 <input type="submit" className="button is-small"/>
-                { bags ? <p>Thank you for your order</p> : <p></p>}
+                { this.state.ordering ? <p>Thank you for your order</p> : <p></p>}
               </div>
             </form> }
           </div>
