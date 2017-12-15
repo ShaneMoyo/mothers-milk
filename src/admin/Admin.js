@@ -4,6 +4,7 @@ import AllDonations from '../donations/AllDonations';
 import AllDropSites from '../dropSites/AllDropSites';
 import AllUsers from '../users/AllUsers';
 import { signup } from '../home/actions';
+import { addDropSite } from '../dropSites/actions';
 
 
 class Admin extends Component {
@@ -20,9 +21,32 @@ class Admin extends Component {
       });
   }
 
+  handleAddDropSite = event => {
+    event.preventDefault();
+    const { address, name, hours } = event.target.elements;
+    this.props.addDropSite(
+      { 
+        name: name.value,
+        hours: hours.value,
+        address: address.value
+      });
+  }
+
   render(){
     return(
       <div>
+        <br/>
+        <AllDonations/>
+        <br/>
+        <AllDropSites/>
+        <form onSubmit={event => this.handleAddDropSite(event)}>
+          <label>Name: <input name="name"/></label>
+          <label>Address: <input name="address"/></label>
+          <label>Hours: <input name="hours"/></label>
+          <input type="submit" ></input>
+        </form>
+        <br/>
+        <AllUsers/>
         <h3>Create New User:</h3>
         <form onSubmit={event => this.handleSignUp(event)}>
           <label>name: <input name="name"/></label>
@@ -31,15 +55,6 @@ class Admin extends Component {
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
         </form>
-        <br/>
-        <h1> Donations </h1>
-        <AllDonations/>
-        <br/>
-        <h1> Drop Sites </h1>
-        <AllDropSites/>
-        <br/>
-        <h1> Users </h1>
-        <AllUsers/>
       </div>
     );
   }
@@ -49,5 +64,5 @@ export default connect(({ auth }) => ({
   error: auth.error,
   user: auth.user
 }),
-{ signup }
+{ signup, addDropSite}
 )(Admin);

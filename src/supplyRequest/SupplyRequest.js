@@ -29,7 +29,6 @@ class SupplyRequest extends Component {
     const { bags } = this.props;
    
     return (
-
       <div className="tile is-parent">
         <div className="tile is-child box hero is-info">
           <div className="sub-title"><a className="subtitle has-text-success link-hover" onClick={this.handleClick}><strong>Request Supplies</strong></a></div>

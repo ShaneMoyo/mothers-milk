@@ -13,7 +13,7 @@ export function loadUsers() {
 export function updateUser(dropSite) {
   return dispatch => {
     dispatch({
-      type: actions.DELETE_USER,
+      type: actions.UPDATE_USER,
       payload: usersApi.update(dropSite)
     });
   };
