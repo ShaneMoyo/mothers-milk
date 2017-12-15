@@ -74,6 +74,3 @@ export default connect(
   ({ auth, donations }) => ({ user: auth.user, donations }),
   { loadDonations, updateDonation, deleteDonation }
 )(AllDonations);
-
-
-

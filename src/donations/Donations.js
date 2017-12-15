@@ -32,21 +32,27 @@ class Donations extends Component {
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
-          <a className="subtitle has-text-primary link-hover" onClick={this.handleClick}>Ready to Donate?</a>
+          <a className="subtitle has-text-primary link-hover" onClick={this.handleClick}>Donations</a>
           {displayMain &&
           <div>
             <hr/>
             <AddDonation user={user}/>
             <hr/>
             <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
-            {display && <ul>
-              {donations.map((donation) => (
-                <li key={donation._id}>
-                  {donation.quantity} status: {donation.status && donation.status}
-                </li>
-              ))}
-            </ul>
-            }
+            {display && 
+            <table className="table is-fullwidth is-striped">
+              <thead>
+                <tr>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {donations.map((donation) => (
+                  <ListItem key={donation._id} id={donation._id} quantity={donation.quantity} status={donation.status}/>
+                ))}
+              </tbody>
+            </table>}
           </div>
           }
         </div>
@@ -66,3 +72,19 @@ export default connect(
   mapStateToProps,
   { loadMyDonations, checkForToken }
 )(Donations);
+
+
+
+
+class ListItem extends Component {
+  
+  render() {
+    const { id, quantity, status } = this.props;   
+    return(
+      <tr>
+        <td>{ quantity } oz.</td>
+        <td>{ status }</td>
+      </tr>
+    );
+  }
+}
