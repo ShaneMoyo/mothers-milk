@@ -57,7 +57,7 @@ class AllDropSites extends PureComponent {
     
     return(
       <div>
-        <h3>dropSites</h3>
+        <h3>Drop Sites</h3>
         <ul>
           {tabledropSites}
         </ul>
