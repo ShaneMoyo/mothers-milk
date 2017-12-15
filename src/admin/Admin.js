@@ -7,7 +7,6 @@ import { signup } from '../home/actions';
 import { addDropSite } from '../dropSites/actions';
 
 
-
 class Admin extends Component {
 
   handleSignUp = event => {

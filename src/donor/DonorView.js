@@ -15,7 +15,7 @@ class DonorView extends Component {
 
   render() {
 
-    const { user, donations } = this.props;
+    const { user } = this.props;
 
     return (
       <div className="column is-8 is-offset-2">
@@ -29,7 +29,6 @@ class DonorView extends Component {
           <div>
             <Donations/>
             <SupplyRequest/>
-            {/* <DonorInfo/> */}
           </div>
         </div>
       </div>
