@@ -39,14 +39,6 @@ class Donations extends Component {
             <AddDonation user={user}/>
             <hr/>
             <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
-            {/* {display && <ul>
-              {donations.map((donation) => (
-                <li key={donation._id}>
-                  {donation.quantity} status: {donation.status && donation.status}
-                </li>
-              ))}
-            </ul>
-            } */}
             {display && 
             <table className="table is-fullwidth is-striped">
               <thead>

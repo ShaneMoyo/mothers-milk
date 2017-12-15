@@ -4,6 +4,8 @@ import { addDonation } from './actions';
 
 class AddDonations extends Component {
 
+
+  
   constructor(){
     super();
     this.state = {
@@ -15,9 +17,10 @@ class AddDonations extends Component {
   }
 
   handleChange = (event) => {
+    const fedExName = event.target.checked ? 'FedEx' : '';
     this.setState({
       isChecked: true,
-      fedExName: 'FedEx'
+      fedExName: fedExName
     });
   }
 
@@ -32,7 +35,7 @@ class AddDonations extends Component {
         dropSite,
         lastDonation: lastDonation.value,
         donor: user._id,
-        status: 'Waiting Pickup',
+        status: 'Awaiting Pickup',
         quantityReceived: 0
       });
     this.setState({ showMessage: true });
