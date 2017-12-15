@@ -20,13 +20,13 @@ class Donations extends Component {
         <div className="tile is-child box">
           <h2 className="subtitle">Ready to Donate?</h2>
           <AddDonation user={user}/>
-          <ul>
+          {/* <ul>
             {donations.map((donation) => (
               <li key={donation._id}>
                 {donation.quantity} status: {donation.status && donation.status}
               </li>
             ))}
-          </ul>
+          </ul> */}
           
         </div>
       </div>

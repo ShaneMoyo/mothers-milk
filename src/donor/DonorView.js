@@ -22,10 +22,11 @@ class DonorView extends Component {
     return (
       <div>
         <div>
+          <br/><br/>
           <h1 className="title">Welcome { user ? user.name : '' }</h1>
           <h2 className="subtitle">Thank you for participating in the milk drop program.</h2>
         </div>
-        <div className="need-space"></div>
+        {/* <div className="need-space"></div> */}
         <div className="container is-fluid">
           <div className="need-space"></div>
           <div className="tile is-ancestor">

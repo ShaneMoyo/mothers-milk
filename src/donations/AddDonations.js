@@ -32,7 +32,7 @@ class AddDonations extends Component {
 
   render() {
     const message = 'Thank you for donating';
-    const { dropSites } = this.props;
+    const { user, dropSites } = this.props;
    
     const listOfDropSites = dropSites && dropSites.map(dropSite =>(
       <option key={dropSite._id} value={dropSite._id}>{dropSite.name}</option>
@@ -45,21 +45,27 @@ class AddDonations extends Component {
         {(this.state.showMessage) ? <p>{message}</p> : 
           (<div>
             <form onSubmit={event => this.handleDonate(event)}>
-              <p className="subtitle is-6">Shipping milk by FedEx?   &nbsp;<input type="checkbox"/>
+              <p className="subtitle is-6">Ship milk by FedEx   &nbsp;<input type="checkbox"/>
               </p>
               <p className="subtitle is-6">-- OR --</p>
               
-              <p className="subtitle is-6">Dropping off at a local milk drop?
+              <p className="subtitle is-6">Drop at nearest milk drop location
               </p>
-              <p className="subtitle is-6">Drop site location?</p>
-              <select name="dropSite" className="button is-outlined">
-                {listOfDropSites}
-              </select><br/>
-              <label className="subtitle is-6">quantity(in ounces): <input className="button is-outlined" placeholder="quantity"/></label>
-              <br/>
+              <label className="subtitle is-6">
+              Select a drop site location</label>
+              <div className="select">
+                <select name="dropSite" className="button is-outlined is-size-6">
+                  {listOfDropSites}
+                </select>
+              </div>
+              <br/><br/>
+              <label className="subtitle is-6">quantity(in ounces): <input className="button is-outlined" name="quantity" placeholder="quantity"/></label>
+              <br/><br/>
               <label className="subtitle is-6">Is this your last donation?&nbsp;<input name="lastDonation" type="checkbox"/></label>
-              <br/>
+              <br/><br/>
               <button className="button is-dark" type="submit">Submit</button>
+              <br/><br/>
+              <button className="button is-light">Total amount donated</button>
             </form>
           </div>
           )
