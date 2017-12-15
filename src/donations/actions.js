@@ -8,26 +8,17 @@ export function loadDonations() {
       type: actions.LOAD_DONATIONS,
       payload: donationApi.get()
     });
-
-    // const { protocol, host } = window.location;
-
-    // const socket = new WebSocket(`${protocol === 'https:' ? 'wss' : 'ws'}://${host}/socket`);
-
+    
     const socket = io({
       path: '/socket'
     });
 
     socket.on('newDonation', donation => {
-      console.log(donation);
       dispatch({
         type: actions.ADD_DONATION,
         payload: donation
       });
-    });
-
-
-
-  
+    }); 
   };
 }
 
