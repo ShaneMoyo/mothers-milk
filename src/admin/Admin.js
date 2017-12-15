@@ -53,9 +53,10 @@ class Admin extends Component {
           <label>name: <input name="name"/></label>
           <label>role: 
             <select name="roles">
-              <option key="0" value="staff">Staff</option>
-              <option key="1" value="donor">Donor</option>
+              <option key="0" value="donor">Donor</option>
+              <option key="1" value="staff">Staff</option>
               <option key="2" value="admin">Admin</option>
+              <option key="3" value="volunteer">Volunteer</option>
             </select>
           </label>
           <label>email: <input name="email"/></label>
