@@ -11,7 +11,7 @@ export default {
   },
 
   update(user) {
-    return request.put(`/users/${user._id}`, user);
+    return request.update(`/users/${user._id}`, user);
   },
 
   remove(id) {
