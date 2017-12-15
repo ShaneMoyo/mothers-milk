@@ -7,8 +7,16 @@ class AddDonations extends Component {
   constructor(){
     super();
     this.state = {
-      showMessage: false
+      showMessage: false,
+      dropSite: ''
     };
+  }
+
+  handleChange = (event) => {
+    const checkedFedEx = event.target.checked ? 'FedEx' : '';
+    this.setState({
+      dropSite: checkedFedEx
+    });
   }
 
   handleDonate = event => {
@@ -32,9 +40,9 @@ class AddDonations extends Component {
 
   render() {
     const message = 'Thank you for donating';
-    const { user, dropSites } = this.props;
+    const { dropSites } = this.props;
    
-    const listOfDropSites = dropSites && dropSites.map(dropSite =>(
+    const listOfDropSites = dropSites && dropSites.map(dropSite => (
       <option key={dropSite._id} value={dropSite._id}>{dropSite.name}</option>
     ));
     
@@ -45,19 +53,23 @@ class AddDonations extends Component {
         {(this.state.showMessage) ? <p>{message}</p> : 
           (<div>
             <form onSubmit={event => this.handleDonate(event)}>
-              <p className="subtitle is-6">Ship milk by FedEx   &nbsp;<input type="checkbox"/>
+              <p className="subtitle is-6">Ship milk by FedEx   &nbsp;<input type="checkbox" value="FedEx" onChange={this.handleChange}/>
               </p>
-              <p className="subtitle is-6">-- OR --</p>
+              {(this.state.dropSite !== 'FedEx') && (
+                <div>
+                  <p className="subtitle is-6">-- OR --</p>
               
-              <p className="subtitle is-6">Drop at nearest milk drop location
-              </p>
-              <label className="subtitle is-6">
+                  <p className="subtitle is-6">Drop at nearest milk drop location
+                  </p>
+                  <label className="subtitle is-6">
               Select a drop site location</label>
-              <div className="select">
-                <select name="dropSite" className="button is-outlined is-size-6">
-                  {listOfDropSites}
-                </select>
-              </div>
+                  <div className="select">
+                    <select name="dropSite" className="button is-outlined is-size-6">
+                      {listOfDropSites}
+                    </select>
+                  </div>
+                </div>
+              )}
               <br/><br/>
               <label className="subtitle is-6">quantity(in ounces): <input className="button is-outlined" name="quantity" placeholder="quantity"/></label>
               <br/><br/>
@@ -65,8 +77,8 @@ class AddDonations extends Component {
               <br/><br/>
               <button className="button is-dark" type="submit">Submit</button>
               <br/><br/>
-              <button className="button is-light">Total amount donated</button>
             </form>
+              
           </div>
           )
         }

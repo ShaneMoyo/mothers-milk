@@ -7,27 +7,33 @@ import AddDonation from './AddDonations';
 
 class Donations extends Component {
 
+  state={
+    display: false
+  }
+
   componentDidMount() {
-    const {  loadMyDonations, user } = this.props;
+    const {  loadMyDonations } = this.props;
     loadMyDonations();
   }
 
   render() {
 
     const { donations, user } = this.props;
+    const { display } = this.state;
     return (
       <div className="tile is-parent">
         <div className="tile is-child box">
           <h2 className="subtitle">Ready to Donate?</h2>
           <AddDonation user={user}/>
-          {/* <ul>
+          <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
+          {this.state.display && <ul>
             {donations.map((donation) => (
               <li key={donation._id}>
                 {donation.quantity} status: {donation.status && donation.status}
               </li>
             ))}
-          </ul> */}
-          
+          </ul>
+          }
         </div>
       </div>
     );
