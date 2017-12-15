@@ -29,44 +29,45 @@ class SupplyRequest extends Component {
     const { bags } = this.props;
    
     return (
-
-      <div className="tile is-4 is-vertical is-parent">
-        <div className="tile is-child box hero is-primary">
-          <div className="is-size-4"><strong>Request Supplies</strong></div><br/>
-          <form onSubmit={event => this.handleSupplyRequest(event)}>
-            <div className="field">
-              <div className="control">
-                <div  className="input-title">
-                  <p className="is-size-5 is-pulled-right">Milk Collection Bags: 
-                    <select name="bags" className="is-size-5 has-text-centered" style={{ backgroundColor: 'white', margin: '5px' }}>
+      <div className="tile is-parent">
+        <div className="tile is-child box hero is-info">
+          <div className="sub-title"><a className="subtitle has-text-success link-hover" onClick={this.handleClick}><strong>Request Supplies</strong></a></div>
+          <div>
+            {this.state.display && <form onSubmit={event => this.handleSupplyRequest(event)}>
+              <div className="field"> 
+                <div className="control">
+                  <hr/>
+                  <div className="input-title"></div>
+                  <div className="inputLabel">Milk Collection Bags: </div>
+                  <div className="select is-small">
+                    <select name="bags">
                       <option value="0">0</option>
                       <option value="2">2</option>
                       <option value="4">4</option>
                       <option value="6">6</option>
                       <option value="8">8</option>
-                    </select></p>
-                </div><br/>
-                <div className="input-title">
-                  <p className="is-size-5 is-pulled-right">Shipping Boxes: 
-                    <select name="boxes" className="is-size-5 has-text-centered" style={{ backgroundColor: 'white', margin: '5px' }}>
+                    </select>
+                  </div>
+                </div>
+                <div className="control">
+                  <div className="input-title"></div>
+                  <div className="inputLabel">Shipping Boxes: </div>
+                  <div className="select is-small">
+                    <select name="boxes">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                     </select>
-                  </p>
+                  </div>
                 </div>
+                <div className="need-space"></div>
+                <input type="submit" className="button is-small"/>
+                { bags ? <p>Thank you for your order</p> : <p></p>}
               </div>
-              <br/>
-              <button className="button is-dark" type="submit">Submit</button>
-              {/* <input type="submit" className="button"/> */}
-              { bags ? <p>Thank you for your order</p> : <p></p>}
-            </div>
-          </form>
-        </div>
-        <div className="tile is-child box hero is-success">
-          <h3>We can put additional info here</h3>
+            </form> }
+          </div>
         </div>
       </div>
     );

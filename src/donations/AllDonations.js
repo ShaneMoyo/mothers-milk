@@ -41,11 +41,15 @@ class AllDonations extends PureComponent {
         <ul>
           {row}
           <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(id)}/></li>
-          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id })}/></li>
-          {(editing === id) && 
+          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id, show: !this.state.show })}/></li>
+          {((editing === id) && (this.state.show)) && 
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
-              <input type="text" name="status" placeholder="Received?"/>
+              <select name="status">
+                <option key="0" value="pending">pending</option>
+                <option key="1" value="Received">Received</option>
+                <option key="2" value="Missing">Missing</option>
+              </select>
               <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
               <input type="submit"/>
             </form>
