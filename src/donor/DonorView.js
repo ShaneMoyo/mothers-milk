@@ -21,7 +21,6 @@ class DonorView extends Component {
       <div className="column is-8 is-offset-2">
         <div className="tile is-parent">
           <div className="tile is-child box hero is-warning">
-            <br/><br/>
             <h1 className="title">Welcome { user ? user.name : '' }</h1>
             <h2 className="subtitle">Thank you for participating in the milk drop program.</h2>
           </div>
