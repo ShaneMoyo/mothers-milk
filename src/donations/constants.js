@@ -2,4 +2,4 @@ export const LOAD_DONATIONS = 'LOAD_DONATIONS';
 export const ADD_DONATION = 'ADD_DONATION';
 export const DELETE_DONATION = 'DELETE_DONATION';
 export const UPDATE_DONATION = 'UPDATE_DONATION';
-export const LOGOUT = 'LOGOUT'
+export const LOGOUT = 'LOGOUT';

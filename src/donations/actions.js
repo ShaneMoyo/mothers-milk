@@ -3,6 +3,12 @@ import donationApi from '../services/donation-api';
 import io from 'socket.io-client';
 
 export function loadDonations() {
+  const socket = io({
+    path: '/socket'
+  });
+
+  socket.removeAllListeners('newDonation');
+
   return dispatch => {
     dispatch({
       type: actions.LOAD_DONATIONS,
@@ -10,15 +16,14 @@ export function loadDonations() {
     });
     
     //Socket code, listening for 'newDonation' message
-    const socket = io({
-      path: '/socket'
-    });
+    
     socket.on('newDonation', donation => {
+      console.log('heard newDonation');
       dispatch({
         type: actions.ADD_DONATION,
         payload: donation
       });
-
+      console.log('after addDonation dispatch');
     }); 
   };
 }
@@ -34,7 +39,7 @@ export function loadMyDonations() {
     const socket = io({
       path: '/socket'
     });
-    
+
     socket.on('updatedDonation', donation => {
       dispatch({
         type: actions.UPDATE_DONATION,
