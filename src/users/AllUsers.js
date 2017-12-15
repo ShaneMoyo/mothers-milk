@@ -17,12 +17,9 @@ class AllUsers extends PureComponent {
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
-    console.log('updateeeee', updatedFields);
-    
     updatedFields.forEach(field => { 
       field.name === 'roles' ? item.roles = [ field.value ] : item[field.name] = field.value;
     });
-    console.log('item ', item);
     this.props.updateUser(item);
   }
 
