@@ -56,8 +56,12 @@ class AllUsers extends PureComponent {
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <input type="text" name="name" placeholder="Name"/>
               <input type="text" name="email" placeholder="Email"/>
-              <input type="text" name="roles" placeholder="Roles"/>
-              <input type="submit" value="Update"/>
+              <select name="roles">
+                <option key="0" value="staff">Staff</option>
+                <option key="1" value="donor">Donor</option>
+                <option key="2" value="admin">Admin</option>
+              </select>
+              <input type="submit"/>
             </form>
           </li>}
         </ul>

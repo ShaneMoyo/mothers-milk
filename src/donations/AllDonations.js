@@ -45,9 +45,13 @@ class AllDonations extends PureComponent {
           {((editing === id) && (this.state.show)) && 
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
-              <input type="text" name="status" placeholder="Received?"/>
+              <select name="status">
+                <option key="0" value="pending">pending</option>
+                <option key="1" value="Received">Received</option>
+                <option key="2" value="Missing">Missing</option>
+              </select>
               <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
-              <input type="submit" value="Update"/>
+              <input type="submit"/>
             </form>
           </li>}
         </ul>
