@@ -1,48 +1,29 @@
 import React, { Component } from 'react';
-import HomeInfo from './HomeInfo';
-import DropSites from '../dropSites/DropSites';
-import Donations from '../donations/Donations';
-import SupplyRequest from '../supplyRequest/SupplyRequest';
 import Header from './Header';
-import Footer from './Footer';
-import { loadDropSites } from '../dropSites/actions';
-import { loadDonations } from '../donations/actions';
-import { connect } from 'react-redux';
-import '../style/mystyle.css';
 
+import { connect } from 'react-redux';
+import { signin, signup, signout } from './actions';
+import DonorView from '../donor/DonorView';
+import Admin from '../admin/Admin';
 
 class Home extends Component {
-
-  render() {
-
-    const { user, donations } = this.props;
-    user && this.props.loadDropSites();
-    //user && this.props.loadDonations();
-
-    return (
+  
+  render(){
+    const { user } = this.props;
+    const isAdmin = user ? user.roles.includes('admin') : false;
+    const view = isAdmin ? <Admin/> : <DonorView/> ;
+    return(
       <div>
         <Header/>
-        <h1>hello { user ? user.name : 'no user' }</h1>
-        <HomeInfo/>
-        <div className="need-space"></div>
-        <div className="container is-fluid">
-          <div className="need-space"></div>
-          <div className="tile is-ancestor">
-            <DropSites/>
-            <Donations/>
-            <SupplyRequest/>
-          </div>
-          <div className="need-space"></div>
-        </div>
-        <Footer/>
+        {user && view}
       </div>
     );
   }
 }
 
-
-
-export default connect(
-  ({ auth, donations }) => ({ user: auth.user, donations }),
-  { loadDropSites, loadDonations }
+export default connect(({ auth }) => ({
+  error: auth.error,
+  user: auth.user
+}),
+{ signin, signup, signout }
 )(Home);

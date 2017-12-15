@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class HomeInfo extends Component {
+class DonorInfo extends Component {
   render() {
     return(
       <section className="section hero is-info">
@@ -17,4 +17,4 @@ class HomeInfo extends Component {
   }
 }
 
-export default HomeInfo;
+export default DonorInfo;

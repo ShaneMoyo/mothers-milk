@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { loadMyDonations } from '../donations/actions';
 import { connect } from 'react-redux';
-import { checkForToken } from '../auth/actions';
+import { checkForToken } from '../home/actions';
 import AddDonation from './AddDonations';
 
 
