@@ -8,6 +8,10 @@ class AllDonations extends PureComponent {
     editing: null
   }
 
+  componentDidMount(){
+    this.props.loadDonations();
+  }
+
   handleUpdate = (event, item) => {
     event.preventDefault();
     const { elements: updates } = event.target;
@@ -20,10 +24,44 @@ class AllDonations extends PureComponent {
     this.props.deleteDonation(id);
   }
 
-  render(){
-    const { loadDonations, updateDonation, deleteDonation, donations, user } = this.props;
+  fieldCheck = item => {
+   
+    return typeof item === 'object' ? item.name : item;
+  };
+
+  render() {
+    const { donations } = this.props;
+    const { editing } = this.state;
+
+
+      const tabledonations = donations.length ? donations.map(item => {
+      const rowdonations = Object.values(item).filter(item => item !== null);
+      const id = rowdonations.shift();
+      const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
+      return (
+        <ul>
+          {row}
+          <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(id)}/></li>
+          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: id })}/></li>
+          {(editing === id) && 
+          <li>
+            <form onSubmit={event => this.handleUpdate(event, item)}>
+              <input type="text" name="status" placeholder="Received?"/>
+              <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
+              <input type="submit"/>
+            </form>
+          </li>}
+        </ul>
+      );
+    }): null;
+    
     return(
-      <Table load={loadDonations} update={updateDonation} remove={deleteDonation} data={donations} user={user}/>
+      <div>
+        <h3>Donations ZZZZ</h3>
+        <ul>
+          {tabledonations}
+        </ul>
+      </div>
     );
   }
 }
