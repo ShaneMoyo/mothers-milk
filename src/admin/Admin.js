@@ -34,10 +34,8 @@ class Admin extends Component {
         <br/>
         <AllDonations/>
         <br/>
-        <h1> Drop Sites </h1>
         <AllDropSites/>
         <br/>
-        <h1> Users </h1>
         <AllUsers/>
       </div>
     );
