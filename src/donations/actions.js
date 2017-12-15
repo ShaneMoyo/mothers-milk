@@ -9,15 +9,16 @@ export function loadDonations() {
       payload: donationApi.get()
     });
     
+    //Socket code, listening for 'newDonation' message
     const socket = io({
       path: '/socket'
     });
-
     socket.on('newDonation', donation => {
       dispatch({
         type: actions.ADD_DONATION,
         payload: donation
       });
+
     }); 
   };
 }
