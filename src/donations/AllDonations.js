@@ -36,7 +36,7 @@ class AllDonations extends PureComponent {
     const tabledonations = donations.length ? donations.map(item => {
       const rowdonations = Object.values(item).filter(item => item !== null);
       const id = rowdonations.shift();
-      const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
+      const row = rowdonations.map((value, index) => <li className="table-cell">{this.fieldCheck(value)}</li>);
       return (
         <ul>
           {row}

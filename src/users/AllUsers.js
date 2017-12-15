@@ -44,7 +44,7 @@ class AllUsers extends PureComponent {
     const tableusers = users.length ? users.map(item => {
       const rowusers = Object.values(item).filter(item => item !== null);
       const id = rowusers.shift();
-      const row = rowusers.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
+      const row = rowusers.map((value, index) => <li className="user-table-cell">{this.fieldCheck(value)}</li>);
       return (
         <ul>
           {row}
