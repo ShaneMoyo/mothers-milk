@@ -38,8 +38,9 @@ class Admin extends Component {
       <div>
         <br/>
         <AllDonations/>
-        <br/>
+        <div className="need-space"></div>
         <AllDropSites/>
+        <h3><strong>Create New DropSite:</strong></h3>
         <form onSubmit={event => this.handleAddDropSite(event)}>
           <label>Name: <input name="name"/></label>
           <label>Address: <input name="address"/></label>
@@ -48,7 +49,8 @@ class Admin extends Component {
         </form>
         <br/>
         <AllUsers/>
-        <h3>Create New User:</h3>
+        <div className="need-space"></div>
+        <h3><strong>Create New User:</strong></h3>
         <form onSubmit={event => this.handleSignUp(event)}>
           <label>name: <input name="name"/></label>
           <label>role: 
