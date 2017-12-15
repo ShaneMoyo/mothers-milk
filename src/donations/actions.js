@@ -29,6 +29,19 @@ export function loadMyDonations() {
       type: actions.LOAD_DONATIONS,
       payload: donationApi.getMy()
     });
+
+    //Socket code, listening for 'updatedDonation' message
+    const socket = io({
+      path: '/socket'
+    });
+    
+    socket.on('updatedDonation', donation => {
+      dispatch({
+        type: actions.UPDATE_DONATION,
+        payload: donation
+      });
+    });
+
   };
 }
 
@@ -47,6 +60,7 @@ export function updateDonation(donation) {
       type: actions.UPDATE_DONATION,
       payload: donationApi.update(donation)
     });
+    
   };
 }
 
