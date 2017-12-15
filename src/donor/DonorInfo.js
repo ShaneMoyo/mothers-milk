@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class DonorInfo extends Component {
   render() {
     return(
-      <section className="section hero is-info">
-        <div className="container">
+      <div className="tile is-parent">
+        <div className="tile is-child box  hero is-primary">
           <p className="subtitle">
                 Northwest Mothers Milk Bank is a not-for-profit donor milk bank established in 2008. 
                 Our mission is based on the belief that every baby deserves access to human milk. 
@@ -12,7 +12,7 @@ class DonorInfo extends Component {
                 human donor milk, education, advocacy, and research.
           </p>
         </div>
-      </section>
+      </div>
     );
   }
 }
