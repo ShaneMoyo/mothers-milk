@@ -25,33 +25,35 @@ class SupplyRequest extends Component {
 
       <div className="tile is-4 is-vertical is-parent">
         <div className="tile is-child box hero is-primary">
-          <div className="sub-title"><strong>Request Supplies</strong></div>
+          <div className="is-size-4"><strong>Request Supplies</strong></div><br/>
           <form onSubmit={event => this.handleSupplyRequest(event)}>
             <div className="field">
               <div className="control">
+                <div  className="input-title">
+                  <p className="is-size-5 is-pulled-right">Milk Collection Bags: 
+                    <select name="bags" className="is-size-5 has-text-centered" style={{ backgroundColor: 'white', margin: '5px' }}>
+                      <option value="0">0</option>
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                      <option value="6">6</option>
+                      <option value="8">8</option>
+                    </select></p>
+                </div><br/>
                 <div className="input-title">
-                  <label>Milk Collection Bags: </label>
-                  <select name="bags">
-                    <option value="0">0</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <div className="input-title">
-                  <label>Shipping Boxes: </label>
-                  <select name="boxes">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
+                  <p className="is-size-5 is-pulled-right">Shipping Boxes: 
+                    <select name="boxes" className="is-size-5 has-text-centered" style={{ backgroundColor: 'white', margin: '5px' }}>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </p>
                 </div>
               </div>
-              <input type="submit" className="button"/>
+              <br/>
+              <button className="button is-dark" type="submit">Submit</button>
+              {/* <input type="submit" className="button"/> */}
               { bags ? <p>Thank you for your order</p> : <p></p>}
             </div>
           </form>
