@@ -4,8 +4,6 @@ import { addDonation } from './actions';
 
 class AddDonations extends Component {
 
-
-  
   constructor(){
     super();
     this.state = {

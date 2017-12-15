@@ -47,7 +47,7 @@ class AllDonations extends PureComponent {
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <select name="status">
-                <option key="0" value="pending">pending</option>
+                <option key="0" value="Pending">Pending</option>
                 <option key="1" value="Received">Received</option>
                 <option key="2" value="Missing">Missing</option>
               </select>
@@ -60,11 +60,9 @@ class AllDonations extends PureComponent {
     }): null;
     
     return(
-      <div>
-        <h3>Donations</h3>
-        <ul>
-          {tabledonations}
-        </ul>
+      <div className="column is-6 is-offset-3">
+        <h3 className="title is-4">Donations</h3>
+        {tabledonations}
       </div>
     );
   }

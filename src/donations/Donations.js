@@ -74,12 +74,10 @@ export default connect(
 )(Donations);
 
 
-
-
 class ListItem extends Component {
   
   render() {
-    const { id, quantity, status } = this.props;   
+    const { quantity, status } = this.props;   
     return(
       <tr>
         <td>{ quantity } oz.</td>

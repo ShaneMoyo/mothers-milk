@@ -60,6 +60,7 @@ class AllUsers extends PureComponent {
                 <option key="0" value="staff">Staff</option>
                 <option key="1" value="donor">Donor</option>
                 <option key="2" value="admin">Admin</option>
+                <option key="3" value="volunteer">Volunteer</option>
               </select>
               <input type="submit"/>
             </form>
@@ -70,7 +71,7 @@ class AllUsers extends PureComponent {
     
     return(
       <div>
-        <h3>Users</h3>
+        <h3 className="title is-4">Users</h3>
         <ul>
           {tableusers}
         </ul>
