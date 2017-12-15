@@ -7,8 +7,10 @@ import AddDonation from './AddDonations';
 
 class Donations extends Component {
 
-  state={
-    display: false
+  constructor(){
+    super();
+    this.state={ display1: false };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -16,25 +18,33 @@ class Donations extends Component {
     loadMyDonations();
   }
 
+  handleClick() {
+    this.setState({ display1: !this.state.display1 });
+  }
+
   render() {
 
     const { donations, user } = this.props;
-    const { display } = this.state;
+    const { display, display1 } = this.state;
     return (
       <div className="tile is-parent is-pulled-left">
         <div className="tile is-child box">
-          <h2 className="subtitle has-text-primary">Ready to Donate?</h2>
-          <hr/>
-          <AddDonation user={user}/>
-          <hr/>
-          <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
-          {this.state.display && <ul>
-            {donations.map((donation) => (
-              <li key={donation._id}>
-                {donation.quantity} status: {donation.status && donation.status}
-              </li>
-            ))}
-          </ul>
+          <a className="subtitle has-text-primary" onClick={this.handleClick}>Ready to Donate?</a>
+          {display1 &&
+          <div>
+            <hr/>
+            <AddDonation user={user}/>
+            <hr/>
+            <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
+            {display && <ul>
+              {donations.map((donation) => (
+                <li key={donation._id}>
+                  {donation.quantity} status: {donation.status && donation.status}
+                </li>
+              ))}
+            </ul>
+            }
+          </div>
           }
         </div>
       </div>
