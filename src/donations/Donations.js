@@ -74,8 +74,6 @@ export default connect(
 )(Donations);
 
 
-
-
 class ListItem extends Component {
   
   render() {
