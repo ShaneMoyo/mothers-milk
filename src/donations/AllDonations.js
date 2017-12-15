@@ -70,5 +70,3 @@ export default connect(
   { loadDonations, updateDonation, deleteDonation }
 )(AllDonations);
 
-
-
