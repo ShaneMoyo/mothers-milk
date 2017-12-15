@@ -49,7 +49,8 @@ class AddDonations extends Component {
     
     return (
       
-      <div>
+      <div className="tile is-parent hero is-light">
+        
         {(this.state.showMessage) ? <p>{message}</p> : 
           (<div>
             <form onSubmit={event => this.handleDonate(event)}>
@@ -61,8 +62,8 @@ class AddDonations extends Component {
               
                   <p className="subtitle is-6">Drop at nearest milk drop location
                   </p>
-                  <label className="subtitle is-6">
-              Select a drop site location</label>
+                  <div className="subtitle is-6 label">
+                    Select a drop site location</div>
                   <div className="select">
                     <select name="dropSite" className="button is-outlined is-size-6">
                       {listOfDropSites}
@@ -71,11 +72,12 @@ class AddDonations extends Component {
                 </div>
               )}
               <br/><br/>
-              <label className="subtitle is-6">quantity(in ounces): <input className="button is-outlined" name="quantity" placeholder="quantity"/></label>
+              <div className="subtitle is-6 label">Quantity(in ounces):</div>
+              <input className="button is-outlined" name="quantity" placeholder="quantity"/>
               <br/><br/>
-              <label className="subtitle is-6">Is this your last donation?&nbsp;<input name="lastDonation" type="checkbox"/></label>
+              <div className="subtitle is-6 label">Is this your last donation?&nbsp;<input name="lastDonation" type="checkbox"/></div>
               <br/><br/>
-              <button className="button is-dark" type="submit">Submit</button>
+              <button className="button is-primary" type="submit">Submit</button>
               <br/><br/>
             </form>
               

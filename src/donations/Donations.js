@@ -21,10 +21,12 @@ class Donations extends Component {
     const { donations, user } = this.props;
     const { display } = this.state;
     return (
-      <div className="tile is-parent">
+      <div className="tile is-parent is-pulled-left">
         <div className="tile is-child box">
-          <h2 className="subtitle">Ready to Donate?</h2>
+          <h2 className="subtitle has-text-primary">Ready to Donate?</h2>
+          <hr/>
           <AddDonation user={user}/>
+          <hr/>
           <button className="button is-light" onClick={() =>  this.setState({ display: true  })}>Total amount donated</button>
           {this.state.display && <ul>
             {donations.map((donation) => (
