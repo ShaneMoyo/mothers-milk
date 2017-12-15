@@ -62,6 +62,10 @@ class Admin extends Component {
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
         </form>
       </div>
     );
