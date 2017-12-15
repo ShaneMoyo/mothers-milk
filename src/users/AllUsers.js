@@ -71,7 +71,7 @@ class AllUsers extends PureComponent {
     
     return(
       <div>
-        <h3>Users</h3>
+        <h3 className="title is-4">Users</h3>
         <ul>
           {tableusers}
         </ul>

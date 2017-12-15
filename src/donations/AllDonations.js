@@ -61,7 +61,7 @@ class AllDonations extends PureComponent {
     
     return(
       <div>
-        <h3>Donations</h3>
+        <h3 className="title is-4">Donations</h3>
         <ul>
           {tabledonations}
         </ul>
