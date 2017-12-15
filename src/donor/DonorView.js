@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DonorInfo from './DonorInfo';
+// import DonorInfo from './DonorInfo';
 import Donations from '../donations/Donations';
 import SupplyRequest from '../supplyRequest/SupplyRequest';
 import { loadDropSites } from '../dropSites/actions';
@@ -29,7 +29,7 @@ class DonorView extends Component {
           <div>
             <Donations/>
             <SupplyRequest/>
-            <DonorInfo/>
+            {/* <DonorInfo/> */}
           </div>
         </div>
       </div>

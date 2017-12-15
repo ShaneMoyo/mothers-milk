@@ -15,7 +15,11 @@ class Home extends Component {
     return(
       <div>
         <Header/>
-        {user && view}
+        {user ? view :
+          <main>
+            <img className="home" alt="baby" src="/images/baby.jpeg"/>
+          </main>
+        }
       </div>
     );
   }
