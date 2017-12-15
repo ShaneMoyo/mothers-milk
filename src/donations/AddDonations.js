@@ -8,38 +8,41 @@ class AddDonations extends Component {
     super();
     this.state = {
       showMessage: false,
-      dropSite: ''
+      dropSite: '5a33ee322d693f852640e2ee',
+      isChecked: false,
+      fedExName: ''
     };
   }
 
   handleChange = (event) => {
-    const checkedFedEx = event.target.checked ? 'FedEx' : '';
     this.setState({
-      dropSite: checkedFedEx
+      isChecked: true,
+      fedExName: 'FedEx'
     });
   }
 
   handleDonate = event => {
     event.preventDefault();
-    const { dropSite, quantity, lastDonation } = event.target.elements;
+    let { dropSite, quantity, lastDonation } = event.target.elements;
     const { user } = this.props;
+    this.state.isChecked ? dropSite = this.state.dropSite : dropSite = dropSite.value;
     this.props.addDonation(
       { 
         quantity: quantity.value,
-        dropSite: dropSite.value,
+        dropSite,
         lastDonation: lastDonation.value,
         donor: user._id,
-        status: 'pending',
+        status: 'Waiting Pickup',
         quantityReceived: 0
       });
     this.setState({ showMessage: true });
     window.setTimeout(() => {
       this.setState({ showMessage: false });
-    }, 5000);
+    }, 4000);
   }
 
   render() {
-    const message = 'Thank you for donating';
+    const message = 'Thank you for donating!';
     const { dropSites } = this.props;
    
     const listOfDropSites = dropSites && dropSites.map(dropSite => (
@@ -49,14 +52,13 @@ class AddDonations extends Component {
     
     return (
       
-      <div className="tile is-parent hero is-light">
-        
+      <div className="tile is-parent hero is-light">        
         {(this.state.showMessage) ? <p>{message}</p> : 
           (<div>
             <form onSubmit={event => this.handleDonate(event)}>
               <p className="subtitle is-6">Ship milk by FedEx   &nbsp;<input type="checkbox" value="FedEx" onChange={this.handleChange}/>
               </p>
-              {(this.state.dropSite !== 'FedEx') && (
+              {(this.state.fedExName !== 'FedEx') && (
                 <div>
                   <p className="subtitle is-6">-- OR --</p>
               
