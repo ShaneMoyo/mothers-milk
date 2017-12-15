@@ -9,7 +9,10 @@ class Donations extends Component {
 
   constructor(){
     super();
-    this.state={ display1: false };
+    this.state={ 
+      displayMain: false,
+      display: false
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -19,18 +22,18 @@ class Donations extends Component {
   }
 
   handleClick() {
-    this.setState({ display1: !this.state.display1 });
+    this.setState({ displayMain: !this.state.displayMain });
   }
 
   render() {
 
     const { donations, user } = this.props;
-    const { display, display1 } = this.state;
+    const { displayMain, display } = this.state;
     return (
-      <div className="tile is-parent is-pulled-left">
+      <div className="tile is-parent">
         <div className="tile is-child box">
-          <a className="subtitle has-text-primary" onClick={this.handleClick}>Ready to Donate?</a>
-          {display1 &&
+          <a className="subtitle has-text-primary hover" onClick={this.handleClick}>Ready to Donate?</a>
+          {displayMain &&
           <div>
             <hr/>
             <AddDonation user={user}/>
