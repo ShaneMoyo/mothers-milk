@@ -31,7 +31,7 @@ class Admin extends Component {
       });
   }
 
-  render(){
+  render() {
     return(
       <div>
         <br/>

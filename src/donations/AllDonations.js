@@ -7,7 +7,7 @@ class AllDonations extends PureComponent {
     editing: null
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadDonations();
   }
 

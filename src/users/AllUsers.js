@@ -8,7 +8,7 @@ class AllUsers extends PureComponent {
     editing: null
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadUsers();
   }
 
