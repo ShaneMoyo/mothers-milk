@@ -14,15 +14,11 @@ export function loadDonations() {
       payload: donationApi.get()
     });
     
-    //Socket code, listening for 'newDonation' message
-   
     socket.on('newDonation', donation => {
-      console.log('heard newDonation');
       dispatch({
         type: actions.ADD_DONATION,
         payload: donation
       });
-      console.log('after addDonation dispatch');
     }); 
   };
 }
@@ -34,15 +30,12 @@ export function loadMyDonations() {
       payload: donationApi.getMy()
     });
 
-    // Socket code, listening for 'updatedDonation' message
-
     socket.on('updatedDonation', donation => {
       dispatch({
         type: actions.UPDATE_DONATION,
         payload: donation
       });
     });
-
   };
 }
 

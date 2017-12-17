@@ -19,7 +19,6 @@ export function addDropSite(dropSite) {
   };
 }
 
-
 export function updateDropSite(dropSite) {
   return dispatch => {
     dispatch({

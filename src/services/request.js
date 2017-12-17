@@ -3,7 +3,6 @@ import { API_URL } from './constants';
 import superagent from 'superagent';
 
 let token = '';
-
 const storage = window.localStorage;
 
 store.subscribe(() => {
@@ -27,7 +26,6 @@ const wrap = cmd => cmd
     }
   );
 
-
 export const request = {
   get(url) {
     return wrap(superagent.get(`${API_URL}${url}`));
@@ -42,11 +40,3 @@ export const request = {
     return wrap(superagent.delete(`${API_URL}${url}`));
   } 
 };
-
-
-
-
-
-
-
-

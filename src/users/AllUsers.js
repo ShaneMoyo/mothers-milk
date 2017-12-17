@@ -2,14 +2,13 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { loadUsers, updateUser, deleteUser } from './actions';
 
-
 class AllUsers extends PureComponent {
 
   state = {
     editing: null
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.loadUsers();
   }
 
@@ -23,14 +22,14 @@ class AllUsers extends PureComponent {
     this.props.updateUser(item);
   }
 
-  handleDelete = id=> {
+  handleDelete = id => {
     this.props.deleteUser(id);
   }
 
   fieldCheck = item => {
     if (typeof item === 'object') {
       return item.name;
-    } else if (typeof item === 'array') {
+    } else if (Array.isArray(item)) {
       return item[0];
     } else {
       return item;
@@ -40,7 +39,6 @@ class AllUsers extends PureComponent {
   render() {
     const { users } = this.props;
     const { editing } = this.state;
-
     const tableusers = users.length ? users.map(item => {
       const rowusers = Object.values(item).filter(item => item !== null);
       const id = rowusers.shift();
@@ -79,7 +77,6 @@ class AllUsers extends PureComponent {
     );
   }
 }
-
 
 export default connect(
   ({ auth, users }) => ({ user: auth.user, users }),
