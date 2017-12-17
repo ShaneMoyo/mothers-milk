@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { loadDropSites } from '../dropSites/actions';
 import { connect } from 'react-redux';
-import { dropSites } from './reducer';
-
 
 class DropSites extends Component {
 
@@ -28,7 +26,6 @@ class DropSites extends Component {
     );
   }
 }
-
 
 export default connect(
   ({ dropSites }) => ({ dropSites }),

@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import DonorView from '../donor/DonorView';
-import Home from '../home/Home';
-import AllDonations from '../donations/AllDonations';
-import Admin from '../admin/Admin';
 import { connect } from 'react-redux';
 import { checkForToken } from '../home/actions';
 import { loadDropSites } from '../dropSites/actions';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
-import Nav from '../home/Nav';
 
 class App extends Component {
   
@@ -19,13 +14,12 @@ class App extends Component {
   }
 
   render() {
-    const { user, checkedToken } = this.props;
+    const { checkedToken } = this.props;
     return (
       <div>
         <Router>
           { checkedToken &&
             <div className="App">
-              {/* <Nav/>   */}
               <main>
                 <Routes/>
               </main>

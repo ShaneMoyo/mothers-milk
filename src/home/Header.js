@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signin, signup, signout } from './actions';
 import { NavLink, Link } from 'react-router-dom';
-import DonorView from '../donor/DonorView';
-import Admin from '../admin/Admin';
 
 class Header extends Component {
 
@@ -23,8 +21,7 @@ class Header extends Component {
       <header className="columns header">
         <div className="column is-3 is-offset-1">
           <Link to="/"><img alt="logo" src="/images/logo.jpg"/></Link>
-        </div>
-       
+        </div>       
         <div className="column is-2 is-offset-5">
           <form className="field signInForm" onSubmit={event => this.handleSignIn(event)}>
             {!user && <div>

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { loadDonations, updateDonation, deleteDonation } from './actions';
-import Table from '../tables/Table';
 
 class AllDonations extends PureComponent {
   state = {
@@ -16,23 +15,21 @@ class AllDonations extends PureComponent {
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
-    updatedFields.forEach(field =>  item[field.name] = field.value);
+    updatedFields.forEach(field => item[field.name] = field.value);
     this.props.updateDonation(item);
   }
 
-  handleDelete = id=> {
+  handleDelete = id => {
     this.props.deleteDonation(id);
   }
 
-  fieldCheck = item => {
-   
+  fieldCheck = item => { 
     return typeof item === 'object' ? item.name : item;
   };
 
   render() {
     const { donations } = this.props;
     const { editing } = this.state;
-
     const tabledonations = donations.length ? donations.map(item => {
       let rowdonations = Object.values(item).filter(item => item !== null);
       const id = rowdonations.shift();

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { loadDropSites, updateDropSite, deleteDropSite } from './actions';
 
-
 class AllDropSites extends PureComponent {
   state = {
     editing: null
@@ -16,23 +15,21 @@ class AllDropSites extends PureComponent {
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
-    updatedFields.forEach(field =>  item[field.name] = field.value);
+    updatedFields.forEach(field => item[field.name] = field.value);
     this.props.updateDropSite(item);
   }
 
-  handleDelete = id=> {
+  handleDelete = id => {
     this.props.deleteDropSite(id);
   }
 
-  fieldCheck = item => {
-   
+  fieldCheck = item => {  
     return typeof item === 'object' ? item.name : item;
   };
 
   render() {
     const { dropSites } = this.props;
     const { editing } = this.state;
-
     const tabledropSites = dropSites.length ? dropSites.map(item => {
       const rowdropSites = Object.values(item).filter(item => item !== null);
       const id = rowdropSites.shift();

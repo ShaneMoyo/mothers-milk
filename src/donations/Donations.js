@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { checkForToken } from '../home/actions';
 import AddDonation from './AddDonations';
 
-
 class Donations extends Component {
 
   constructor(){
     super();
-    this.state={ 
+    this.state = { 
       displayMain: false,
       display: false
     };
@@ -17,7 +16,7 @@ class Donations extends Component {
   }
 
   componentDidMount() {
-    const {  loadMyDonations } = this.props;
+    const { loadMyDonations } = this.props;
     loadMyDonations();
   }
 
@@ -72,7 +71,6 @@ export default connect(
   mapStateToProps,
   { loadMyDonations, checkForToken }
 )(Donations);
-
 
 class ListItem extends Component {
   

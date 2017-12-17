@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { requestSupply } from './actions';
 
 class SupplyRequest extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = { 
       display: false,
@@ -12,7 +12,6 @@ class SupplyRequest extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   
-
   handleSupplyRequest = event => {
     event.preventDefault();
     const { bags, boxes } = event.target.elements;
@@ -24,8 +23,6 @@ class SupplyRequest extends Component {
         boxes: boxes.value,
         donor: user._id
       });
-
-    console.log('supply request1', bags.value, boxes.value);
   }
 
   handleClick() {
@@ -84,4 +81,3 @@ export default connect(
   ({ auth }) => ({ user: auth.user }),
   { requestSupply }
 )(SupplyRequest);
-

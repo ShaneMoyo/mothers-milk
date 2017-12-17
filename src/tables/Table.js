@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-
 
 class Table extends PureComponent {
   state = {
     editing: null
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.load();
   }
 
@@ -15,22 +13,21 @@ class Table extends PureComponent {
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
-    updatedFields.forEach(field =>  item[field.name] = field.value);
+    updatedFields.forEach(field => item[field.name] = field.value);
     this.props.update(item);
   }
 
-  handleDelete = id=> {
+  handleDelete = id => {
     this.props.remove(id);
   }
 
-  fieldCheck = item => {
-   
-    return typeof item === 'object' ? item.name : item
-    };
+  fieldCheck = item => { 
+    return typeof item === 'object' ? item.name : item;
+  };
 
   render() {
     
-    const { user, data, dataType } = this.props;
+    const { data, dataType } = this.props;
     const { editing } = this.state;
     let fields = null;
     if(data) fields = data.length && Object.keys(data[0]);
@@ -61,7 +58,5 @@ class Table extends PureComponent {
     );
   }
 }
-
-
 
 export default Table;
