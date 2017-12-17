@@ -34,8 +34,9 @@ class AllDonations extends PureComponent {
     const { editing } = this.state;
 
     const tabledonations = donations.length ? donations.map(item => {
-      const rowdonations = Object.values(item).filter(item => item !== null);
+      let rowdonations = Object.values(item).filter(item => item !== null);
       const id = rowdonations.shift();
+      rowdonations = rowdonations.filter(data => data !== 0);
       const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
       return (
         <ul>
@@ -46,7 +47,7 @@ class AllDonations extends PureComponent {
           <li>
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <select name="status">
-                <option key="0" value="pending">pending</option>
+                <option key="0" value="Pending">Pending</option>
                 <option key="1" value="Received">Received</option>
                 <option key="2" value="Missing">Missing</option>
               </select>
@@ -59,11 +60,9 @@ class AllDonations extends PureComponent {
     }): null;
     
     return(
-      <div>
-        <h3>Donations</h3>
-        <ul>
-          {tabledonations}
-        </ul>
+      <div className="column is-6 is-offset-3">
+        <h3 className="title is-4">Donations</h3>
+        {tabledonations}
       </div>
     );
   }

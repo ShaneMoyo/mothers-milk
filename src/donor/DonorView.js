@@ -17,8 +17,6 @@ class DonorView extends Component {
 
     const { user, donations } = this.props;
 
-    //user && this.props.loadDonations();
-
     return (
       <div className="column is-8 is-offset-2">
         <div className="tile is-parent">

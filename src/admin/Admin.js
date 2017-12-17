@@ -38,8 +38,9 @@ class Admin extends Component {
       <div>
         <br/>
         <AllDonations/>
-        <br/>
+        <div className="need-space"></div>
         <AllDropSites/>
+        <h3><strong>Create New DropSite:</strong></h3>
         <form onSubmit={event => this.handleAddDropSite(event)}>
           <label>Name: <input name="name"/></label>
           <label>Address: <input name="address"/></label>
@@ -48,18 +49,25 @@ class Admin extends Component {
         </form>
         <br/>
         <AllUsers/>
-        <h3>Create New User:</h3>
+        <div className="need-space"></div>
+        <h3><strong>Create New User:</strong></h3>
         <form onSubmit={event => this.handleSignUp(event)}>
           <label>name: <input name="name"/></label>
-          <label>role: <select name="roles">
-                <option key="0" value="staff">Staff</option>
-                <option key="1" value="donor">Donor</option>
-                <option key="2" value="admin">Admin</option>
-              </select>
+          <label>role: 
+            <select name="roles">
+              <option key="0" value="donor">Donor</option>
+              <option key="1" value="staff">Staff</option>
+              <option key="2" value="admin">Admin</option>
+              <option key="3" value="volunteer">Volunteer</option>
+            </select>
           </label>
           <label>email: <input name="email"/></label>
           <label>password: <input type="password" name="password"/></label>
           <input type="submit" ></input>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
+          <div className="need-space"></div>
         </form>
       </div>
     );
