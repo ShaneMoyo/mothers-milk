@@ -13,7 +13,6 @@ class AllDonations extends PureComponent {
   }
 
   handleUpdate = (event, item) => {
-    console.log('its happening!!');
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
@@ -21,20 +20,20 @@ class AllDonations extends PureComponent {
     this.props.updateDonation(item);
   }
 
-  handleDelete = id=> {
+  handleDelete = id => {
     this.props.deleteDonation(id);
   }
 
-  fieldCheck = item => {
-   
-    return typeof item === 'object' ? item.name : item;
-  };
+  handleChange = ({ target: input }) => {
+    this.setState({
+      [input.name]: input.value
+    });
+}
 
   render() {
     const { donations } = this.props;
     const { editing } = this.state;
-
-    const tabledonations = donations.length ? donations.map(item => {
+    const tableData = donations.length ? donations.map(item => {
       return (
         <tr>
           <td>{item.donor.name}</td>
@@ -43,20 +42,34 @@ class AllDonations extends PureComponent {
           <td>{item.status}</td>
           <td><input type="button" value="X" onClick={() => this.handleDelete(item._id)}/></td>
           <td><input type="button" value="✎" onClick={() => this.setState({ editing: item._id, show: !this.state.show })}/></td>
-          {((editing === item._id) && (this.state.show)) && 
-          <td>
-            <form onSubmit={event => this.handleUpdate(event, item)}>
-              <select name="status">
-                <option key="0" value="Pending">Pending</option>
-                <option key="1" value="Received">Received</option>
-                <option key="2" value="Missing">Missing</option>
-              </select>
-              <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
-              <input type="submit"/>
-            </form>
-          </td>}
         </tr>
-    
+      );
+    }): null;
+
+    const editingTableData = donations.length ? donations.map(item => {
+      return (
+
+        <tr>
+          <td>{item.donor.name}</td>
+          <td>{item.dropSite.name}</td>
+          <td>{item.quantity}</td>
+          <td>{item.status}</td>
+          <td><input type="button" value="X" onClick={() => this.handleDelete(item._id)}/></td>
+          <td><input type="button" value="✎" onClick={() => this.setState({ editing: item._id, show: !this.state.show })}/></td>
+          {((editing === item._id) && (this.state.show)) && 
+            <td>
+              <form onSubmit={event => this.handleUpdate(event, item)}>
+                <select style={{ display:'inline', margin:'5px' }} name="status">
+                  <option key="0" value="Pending">Pending</option>
+                  <option key="1" value="Received">Received</option>
+                  <option key="2" value="Missing">Missing</option>
+                </select>
+                <input style={{ display:'inline', margin:'5px' }} type="text" name="quantityReceived" placeholder="quantityReceived"/>
+                <input style={{ display:'inline', margin:'5px' }}type="submit"/>
+              </form>
+            </td>
+          }
+        </tr>
       );
     }): null;
     
@@ -68,7 +81,7 @@ class AllDonations extends PureComponent {
           <th>Drop Site</th>
           <th>Quantity</th>
           <th>Status</th>
-          {tabledonations}
+          {this.state.editing ? editingTableData : tableData}
         </table>
       </div>
     );
@@ -79,48 +92,3 @@ export default connect(
   ({ auth, donations }) => ({ user: auth.user, donations }),
   { loadDonations, updateDonation, deleteDonation }
 )(AllDonations);
-
-// render() {
-//   const { donations } = this.props;
-//   const { editing } = this.state;
-
-//   const tabledonations = donations.length ? donations.map(item => {
-//     let rowdonations = Object.values(item).filter(item => item !== null);
-//     console.log('item', item);
-//     console.log('rowdonations', rowdonations);
-//     rowdonations = rowdonations.filter(data => data !== 0);
-//     const row = rowdonations.map((value, index) => <td style={{ display:'intdne', margin:'5px' }}>{this.fieldCheck(value)}</td>);
-//     return (
-//       <ul>
-//         {row}
-//         <td style={{ display:'intdne' }}><input type="button" value="X" onCtdck={() => this.handleDelete(item._id)}/></td>
-//         <td style={{ display:'intdne' }}><input type="button" value="✎" onCtdck={() => this.setState({ editing: item._id, show: !this.state.show })}/></td>
-//         {((editing === item._id) && (this.state.show)) && 
-//         <td>
-//           <form onSubmit={event => this.handleUpdate(event, item)}>
-//             <select name="status">
-//               <option key="0" value="Pending">Pending</option>
-//               <option key="1" value="Received">Received</option>
-//               <option key="2" value="Missing">Missing</option>
-//             </select>
-//             <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
-//             <input type="submit"/>
-//           </form>
-//         </td>}
-//       </ul>
-//     );
-//   }): null;
-  
-//   return(
-//     <div className="column is-6 is-offset-3">
-//       <h3 className="title is-4">Donations</h3>
-//       {tabledonations}
-//     </div>
-//   );
-// }
-// }
-
-// export default connect(
-// ({ auth, donations }) => ({ user: auth.user, donations }),
-// { loadDonations, updateDonation, deleteDonation }
-// )(AllDonations);
