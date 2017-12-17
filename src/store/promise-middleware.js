@@ -21,7 +21,6 @@ export default ({ dispatch }) => next => async action => {
       type: ERROR,
       payload: err
     });
-
     throw err;
   }
 };

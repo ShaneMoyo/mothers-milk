@@ -1,8 +1,16 @@
-Mothers-milk
+# Mother's Milk
 
-User Stories
+Mother's Milk is a mobile-friendly web app developed for the [NW Mothers Milk Bank](https://www.donatemilk.org), a nonprofit organization dedicated to helping deliver donated breastmilk to hospitals in the northwest to help babies in need. Our goal is to streamline the process between donors and the organization. To do this, we created an app that allows a donor to notify the organization where they are making a donation, and how much milk they are donating. The organization will be able to use the app to confirm receipt, letting the donor know that her donation was received, as well as how much milk she has donated in total.
 
-Donor
+# The Team
+### [Michele Greenwood](https://www.linkedin.com/in/micheleugreenwood/)
+### [Erdem Koral](https://www.linkedin.com/in/erdem-koral-22a1b074/)
+### [Robin Miller](https://www.linkedin.com/in/rmillerpdx/)
+### [Shane Moyo](https://www.linkedin.com/in/shane-moyo-06446813b/)
+
+# User Stories
+
+### Donor
 1. As a donor, I want to let the organization know that I have / or will drop off milk at my local drop off site.
 2. As a donor, I want my donation experience to be as simple and convenient as possible.
 3. As a donor, I want to know the location of my nearest drop off site.
@@ -21,7 +29,7 @@ Donor
 16. As a donor, I want to be able to update my location.
 17. As a donor, I want my application to be designed primarily for mobile usage.
 
-Staff
+### Staff
 1. As a staff member, I want to be alerted to donations at sites.
 2. As a staff member, I want to be able to confirm that the donation has been made.
 3. As a staff member, I want to be able to confirm and change the quantity of the donation.
@@ -32,7 +40,7 @@ Staff
 8. As a staff member, I want the option to undo a confirmation.
 9. As a staff member, I want to generate a timestamp upon receipt.
 
-Admin stories
+### Admin stories
 1. As an admin, I want to be able to authorize donors, admin and staff.
 2. As an admin, I want to be able to edit drop off information.
 3. As an admin, I want to have total control of the data.
@@ -40,7 +48,7 @@ Admin stories
 5. As an admin, I want to edit and remove existing users, staff and admin.
 6. As an admin, I want to review shipping material requests.
 
-Coding consistency
+## Coding consistency
 1. good: fn()  bad: fn ()
 2. good: map.(a => a * 2);
     bad: map.((a)=> a*2);
@@ -57,7 +65,7 @@ Coding consistency
 6. one line space between unlike items
 
 
-Behavior
+## Behavior
 1. Taking breaks every 30 minutes is recommended
 2. Stand ups twice a day
 3. No pulling in your own pull request
@@ -65,7 +73,7 @@ Behavior
 5. No added features on Friday
 6. Scrum tickets should be short, concise, actionable, "vertical" actions
 
-Developer stories
+## Developer stories
 1. Code should be consistent and readable.
 2. Code should be resilient and reliable.
 3. Code should be tested.

@@ -51,7 +51,6 @@ class AddDonations extends Component {
       <option key={dropSite._id} value={dropSite._id}>{dropSite.name}</option>
     ));
     
-    
     return (
       
       <div className="tile is-parent hero is-light">        
@@ -63,7 +62,6 @@ class AddDonations extends Component {
               {(this.state.fedExName !== 'FedEx') && (
                 <div>
                   <p className="subtitle is-6">-- OR --</p>
-              
                   <p className="subtitle is-6">Drop at nearest milk drop location
                   </p>
                   <div className="subtitle is-6 label">
@@ -83,8 +81,7 @@ class AddDonations extends Component {
               <br/><br/>
               <button className="button is-primary" type="submit">Submit</button>
               <br/><br/>
-            </form>
-              
+            </form>             
           </div>
           )
         }
@@ -97,8 +94,3 @@ export default connect(
   ({ donations, dropSites }) => ({ donations, dropSites }),
   { addDonation }
 )(AddDonations);
-
- 
-    
-  
-    

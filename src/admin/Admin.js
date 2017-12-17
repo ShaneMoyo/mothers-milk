@@ -6,7 +6,6 @@ import AllUsers from '../users/AllUsers';
 import { signup } from '../home/actions';
 import { addDropSite } from '../dropSites/actions';
 
-
 class Admin extends Component {
 
   handleSignUp = event => {
@@ -32,7 +31,7 @@ class Admin extends Component {
       });
   }
 
-  render(){
+  render() {
     return(
       <div>
         <br/>

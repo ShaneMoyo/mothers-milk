@@ -1,7 +1,6 @@
 import * as actions from './constants';
 import supplyRequestApi from '../services/supplyRequest-api';
 
-
 export function loadSupplyRequest() {
   return dispatch => {
     dispatch({ 
