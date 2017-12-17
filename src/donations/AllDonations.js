@@ -13,6 +13,7 @@ class AllDonations extends PureComponent {
   }
 
   handleUpdate = (event, item) => {
+    console.log('its happening!!');
     event.preventDefault();
     const { elements: updates } = event.target;
     const updatedFields = Object.values(updates).filter(field => field.value !== '');
@@ -34,22 +35,16 @@ class AllDonations extends PureComponent {
     const { editing } = this.state;
 
     const tabledonations = donations.length ? donations.map(item => {
-      let rowdonations = Object.values(item).filter(item => item !== null);
-      console.log('item', item);
-      console.log('rowdonations', rowdonations);
-      rowdonations = rowdonations.filter(data => data !== 0);
-      const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
       return (
-        <ul>
-          {/* {row} */}
-          <li style={{ display:'inline', margin:'5px' }}>{item.donor.name}</li>
-          <li style={{ display:'inline', margin:'5px' }}>{item.dropSite.name}</li>
-          <li style={{ display:'inline', margin:'5px' }}>{item.quantity}</li>
-          <li style={{ display:'inline', margin:'5px' }}>{item.status}</li>
-          <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(item._id)}/></li>
-          <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: item._id, show: !this.state.show })}/></li>
+        <tr>
+          <td>{item.donor.name}</td>
+          <td>{item.dropSite.name}</td>
+          <td>{item.quantity}</td>
+          <td>{item.status}</td>
+          <td><input type="button" value="X" onClick={() => this.handleDelete(item._id)}/></td>
+          <td><input type="button" value="✎" onClick={() => this.setState({ editing: item._id, show: !this.state.show })}/></td>
           {((editing === item._id) && (this.state.show)) && 
-          <li>
+          <td>
             <form onSubmit={event => this.handleUpdate(event, item)}>
               <select name="status">
                 <option key="0" value="Pending">Pending</option>
@@ -59,15 +54,22 @@ class AllDonations extends PureComponent {
               <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
               <input type="submit"/>
             </form>
-          </li>}
-        </ul>
+          </td>}
+        </tr>
+    
       );
     }): null;
     
     return(
       <div className="column is-6 is-offset-3">
         <h3 className="title is-4">Donations</h3>
-        {tabledonations}
+        <table>
+          <th>Donor</th>
+          <th>Drop Site</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          {tabledonations}
+        </table>
       </div>
     );
   }
@@ -87,14 +89,14 @@ export default connect(
 //     console.log('item', item);
 //     console.log('rowdonations', rowdonations);
 //     rowdonations = rowdonations.filter(data => data !== 0);
-//     const row = rowdonations.map((value, index) => <li style={{ display:'inline', margin:'5px' }}>{this.fieldCheck(value)}</li>);
+//     const row = rowdonations.map((value, index) => <td style={{ display:'intdne', margin:'5px' }}>{this.fieldCheck(value)}</td>);
 //     return (
 //       <ul>
 //         {row}
-//         <li style={{ display:'inline' }}><input type="button" value="X" onClick={() => this.handleDelete(item._id)}/></li>
-//         <li style={{ display:'inline' }}><input type="button" value="✎" onClick={() => this.setState({ editing: item._id, show: !this.state.show })}/></li>
+//         <td style={{ display:'intdne' }}><input type="button" value="X" onCtdck={() => this.handleDelete(item._id)}/></td>
+//         <td style={{ display:'intdne' }}><input type="button" value="✎" onCtdck={() => this.setState({ editing: item._id, show: !this.state.show })}/></td>
 //         {((editing === item._id) && (this.state.show)) && 
-//         <li>
+//         <td>
 //           <form onSubmit={event => this.handleUpdate(event, item)}>
 //             <select name="status">
 //               <option key="0" value="Pending">Pending</option>
@@ -104,7 +106,7 @@ export default connect(
 //             <input type="text" name="quantityReceived" placeholder="quantityReceived"/>
 //             <input type="submit"/>
 //           </form>
-//         </li>}
+//         </td>}
 //       </ul>
 //     );
 //   }): null;
