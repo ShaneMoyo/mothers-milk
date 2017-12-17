@@ -3,10 +3,10 @@
 Mother's Milk is a mobile-friendly web app developed for the [NW Mothers Milk Bank](https://www.donatemilk.org), a nonprofit organiztion dedicated to helping deliver donated breastmilk to local babies in need. Our goal was to steamline the process between donors and the organization. To do this, we created an app that allows a donor to notify the organization where they are making a donation, and how much milk they are donating. The organization will be able to use the app to confirm receipt, letting the donor know that her donation was received, as well as how much milk she has donated in total.
 
 # The Team
-### Michele Greenwood
-### Erdem Koral
-### Robin Miller
-### Shane Moyo
+### [Michele Greenwood](https://www.linkedin.com/in/micheleugreenwood/)
+### [Erdem Koral](https://www.linkedin.com/in/erdem-koral-22a1b074/)
+### [Robin Miller](https://www.linkedin.com/in/rmillerpdx/)
+### [Shane Moyo](https://www.linkedin.com/in/shane-moyo-06446813b/)
 
 # User Stories
 
