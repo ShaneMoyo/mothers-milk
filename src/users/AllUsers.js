@@ -29,7 +29,7 @@ class AllUsers extends PureComponent {
   fieldCheck = item => {
     if (typeof item === 'object') {
       return item.name;
-    } else if (typeof item === 'array') {
+    } else if (Array.isArray(item)) {
       return item[0];
     } else {
       return item;
