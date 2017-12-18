@@ -24,7 +24,7 @@ class AllDropSites extends PureComponent {
         const { _id: id } = item;
         const editing = this.state.editing === id ? true : false;
         return (
-          <tr>
+          <tr key={id}>
             <td>
               { editing ?
                 <input type="text" placeholder={item.name} name="name" onChange={event => this.handleChange(event)}/> :
@@ -60,10 +60,16 @@ class AllDropSites extends PureComponent {
         <div className="column is-6 is-offset-3">
           <h3 className="title is-4">Drop Sites</h3>
           <table>
-            <th>Drop Site</th>
-            <th>Address</th>
-            <th>hours</th>
-            {tableData}
+            <thead>
+              <tr>
+                <th>Drop Site</th>
+                <th>Address</th>
+                <th>Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableData}
+            </tbody>
           </table>
         </div>
       );

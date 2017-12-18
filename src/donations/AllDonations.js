@@ -28,12 +28,12 @@ class AllDonations extends PureComponent {
       const currentStatusIndex = statusOptions.findIndex(status => status === item.status);
       const options = statusOptions.map((status, i) => i === currentStatusIndex ? <option selected value={status}>{status}</option> : <option value={status}>{status}</option>);
       return (
-        <tr>
+        <tr key={id}>
           <td>
-            {item.donor.name}
+            {item.donor && item.donor.name}
           </td>
           <td>
-            {item.dropSite.name}
+            {item.dropSite && item.dropSite.name}
           </td>
           <td>
             { editing ?
@@ -66,11 +66,17 @@ class AllDonations extends PureComponent {
       <div className="column is-6 is-offset-3">
         <h3 className="title is-4">Donations</h3>
         <table>
-          <th>Donor</th>
-          <th>Drop Site</th>
-          <th>Quantity</th>
-          <th>Status</th>
-          {tableData}
+          <thead>
+            <tr>
+              <th>Donor</th>
+              <th>Drop Site</th>
+              <th>Quantity</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData}
+          </tbody>
         </table>
       </div>
     );

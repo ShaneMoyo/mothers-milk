@@ -28,7 +28,7 @@ class AllUsers extends PureComponent {
         const currentRoleIndex = roleOptions.findIndex(status => status === item.roles[0]);
         const options = roleOptions.map((role, i) => i === currentRoleIndex ? <option selected value={[role]}>{role}</option> : <option value={[role]}>{role}</option>);
         return (
-          <tr>
+          <tr key={id}>
             <td>
               { editing ?
                 <input type="text" placeholder={item.email} name="email" onChange={event => this.handleChange(event)}/> :
@@ -66,10 +66,16 @@ class AllUsers extends PureComponent {
         <div className="column is-6 is-offset-3">
           <h3 className="title is-4">Users</h3>
           <table>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Roles</th>
-            {tableData}
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Roles</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableData}
+            </tbody>
           </table>
         </div>
       );
