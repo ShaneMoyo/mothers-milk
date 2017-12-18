@@ -6,7 +6,7 @@ import { loadDropSites } from '../dropSites/actions';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
 
-class App extends Component {
+export class App extends Component {
   
   componentDidMount() {
     this.props.checkForToken();
