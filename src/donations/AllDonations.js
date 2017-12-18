@@ -22,7 +22,7 @@ class AllDonations extends PureComponent {
   render() {
     const { donations } = this.props;
     const tableData = donations.length ? donations.map(item => {
-      const { _id: id } = item;
+      const { _id: id, donor, dropSite, quantity, status } = item;
       const editing = this.state.editing === id ? true : false;
       const statusOptions = [ 'Pending','Received', 'Missing'];
       const currentStatusIndex = statusOptions.findIndex(status => status === item.status);
@@ -30,15 +30,15 @@ class AllDonations extends PureComponent {
       return (
         <tr key={id}>
           <td>
-            {item.donor && item.donor.name}
+            {donor ? donor.name : null}
           </td>
           <td>
-            {item.dropSite && item.dropSite.name}
+            {dropSite ? dropSite.name : null}
           </td>
           <td>
             { editing ?
-              <input type="text" placeholder={item.quantity} name="quantity" onChange={event => this.handleChange(event)}/> :
-              item.quantity
+              <input type="text" placeholder={quantity} name="quantity" onChange={event => this.handleChange(event)}/> :
+              quantity
             }
           </td>
           <td>
@@ -46,7 +46,7 @@ class AllDonations extends PureComponent {
               <select type="text" name="status" onChange={event => this.handleChange(event)}>
                 {options}
               </select> :
-              item.status
+              status
             }
           </td>
           <td>
