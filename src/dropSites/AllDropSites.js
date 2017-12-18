@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { loadDropSites, updateDropSite, deleteDropSite } from './actions';
 
-
 class AllDropSites extends PureComponent {
   state = { editing: null };
   

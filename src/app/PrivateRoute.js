@@ -6,12 +6,10 @@ const PrivateRoute = ({ component: Component, render, user, ...rest }) => (
   <Route {...rest} render={props => {
     if(user) {
       return render ? render(props) : <Component {...props}/>;
-    }
-    
+    }   
     return (
       <Redirect to="/"/>
     );
-
   }}/>
 );
 

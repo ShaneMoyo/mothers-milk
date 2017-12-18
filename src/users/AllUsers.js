@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { loadUsers, updateUser, deleteUser } from './actions';
 
-
 class AllUsers extends PureComponent {
 
   state = { editing: null };

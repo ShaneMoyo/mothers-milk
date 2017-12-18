@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signout } from './actions';
 
-
 function Nav({ user, signout }) {
   const isAdmin = user ? user.roles.includes('admin') : false;
   return (
@@ -22,7 +21,6 @@ function Nav({ user, signout }) {
     </div>
   );
 }
-
 
 export default connect(
   state => ({ user: state.auth.user }),
